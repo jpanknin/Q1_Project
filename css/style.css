@@ -22,7 +22,15 @@ nav ul {
 
 aside {
   float: left;
-  margin-top: 50px;
+  height: 100vh;
+  padding-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 2px solid white;
+}
+
+aside form {
+  font-size: 12px;
 }
 
 #propertySelector {
@@ -87,11 +95,19 @@ table {
 }
 
 table:hover {
-  /*box-shadow: 0 0 3px 3px rgba(66, 194, 244, 1);*/
+  box-shadow: 0 0 3px 3px rgba(66, 194, 244, 1);
+}
+
+.perInput {
+  width: 60px;
+}
+
+.finInput {
+  width: 90px;
 }
 
 input:hover {
-  /*box-shadow: 0 0 2px 2px rgba(237, 9, 32, 1);*/
+  box-shadow: inset 0 0 2px 2px rgba(237, 9, 32, 1);
 }
 
 tr {
@@ -130,6 +146,11 @@ input {
   text-align: center;
 }
 
+#logoImg {
+  width: 100vw;
+  height: 50px;
+}
+
 .button {
   background-color: rgb(113, 115, 117);
 }
@@ -139,24 +160,27 @@ input {
 }
 
 #container {
-  margin: auto;
+  margin: a;
   overflow: auto;
+
 }
 
-#leftPane {
+.pane {
   float: left;
-  width: 30%;
+  padding-left: 5px;
+  padding-right: 5px;
+  /*width: 30%;*/
 }
 
-#middlePane {
+/*#middlePane {
   float: left;
-  width: 40%;
+  /*width: 40%;*/
 }
 
 #rightPane {
   float: left;
-  width: 30%;
-}
+  /*width: 30%;*/
+}*/
 
 .colSummary {
   background-color: rgba(199, 204, 204);
@@ -170,6 +194,7 @@ input {
 .tableSectionTitle {
   text-align: left;
   padding-left: 5px;
+  background-color: black;
 }
 
 .colTitle {

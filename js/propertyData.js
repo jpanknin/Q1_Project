@@ -158,9 +158,9 @@ var properties = [{
           rent: 1000000,
           other: 100000,
           gross: null,
-          vacancy: null,
-          concessions: null,
-          creditLoss: null,
+          vacancy: .1,
+          concessions: .02,
+          creditLoss: .03,
           net: null
         },
         unit: {
@@ -207,8 +207,8 @@ var properties = [{
           turnover: 75000,
           sales: 50000,
           admin: 50000,
-          management: null,
-          reserves: null
+          management: .03,
+          reserves: .02
         },
         unit: {
           taxes: null,
@@ -483,9 +483,9 @@ var properties = [{
           rent: 2000000,
           other: 200000,
           gross: null,
-          vacancy: null,
-          concessions: null,
-          creditLoss: null,
+          vacancy: .07,
+          concessions: .04,
+          creditLoss: .03,
           net: null
         },
         unit: {
@@ -532,8 +532,8 @@ var properties = [{
           turnover: 75000,
           sales: 50000,
           admin: 50000,
-          management: null,
-          reserves: null
+          management: .03,
+          reserves: .03
         },
         unit: {
           taxes: null,

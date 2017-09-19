@@ -28,7 +28,8 @@
     </form>
   </aside>
   <div id="container">
-    <section class="container" id="leftPane">
+    <!-- <section class="container" id="leftPane"> -->
+    <section class="col-sm-3 pane">
       <table>
         <tr>
           <th class="tableTitle" colspan=2>PROPERTY INFORMATION</th>
@@ -151,7 +152,8 @@
         </tr>
       </table>
     </section>
-    <section class="container" id="middlePane">
+    <!-- <section class="container" id="middlePane"> -->
+    <section class="col-sm-5 pane">
       <table>
         <tr>
           <th class="tableTitle" colspan="6">SOURCES AND USES</th>
@@ -164,9 +166,7 @@
           <td>% of Total</td>
         </tr>
         <tr>
-          <td class="tableSectionTitle"><i><u>Sources</u></i></td>
-          <td></td>
-          <td colspan="4"></td>
+          <td class="tableSectionTitle" colspan="6"><i><u>Sources</u></i></td>
         </tr>
         <tr>
           <td class="tableInfo">Equity</td>
@@ -174,7 +174,7 @@
           <td id="equityTotal"></td>
           <td id="equityUnit"></td>
           <td id="equitySF"></td>
-          <td id="equity%"></td>
+          <td id="equityPer"></td>
         </tr>
         <tr>
           <td class="tableInfo">Debt</td>
@@ -182,7 +182,7 @@
           <td id="debtTotal"></td>
           <td id="debtUnit"></td>
           <td id="debtSF"></td>
-          <td id="debt%"></td>
+          <td id="debtPer"></td>
         </tr>
         <tr class="colSummary">
           <td class="tableInfo">Total Sources</td>
@@ -190,15 +190,13 @@
           <td id="sourcesTotalSum"></td>
           <td id="sourcesUnitSum"></td>
           <td id="sourcesSFSum"></td>
-          <td id="sources%Sum"></td>
+          <td id="sourcesPerSum"></td>
         </tr>
         <tr>
           <td colspan="6" class="filler">-</td>
         </tr>
         <tr>
-          <td class="tableSectionTitle"><i><u>Uses</u></i></td>
-          <td></td>
-          <td colspan="4"></td>
+          <td class="tableSectionTitle" colspan="6"><i><u>Uses</u></i></td>
         </tr>
         <tr>
           <td class="tableInfo">Purchase Price</td>
@@ -206,7 +204,7 @@
           <td id="purchaseTotal"></td>
           <td id="purchaseUnit"></td>
           <td id="purchaseSF"></td>
-          <td id="purchase%"></td>
+          <td id="purchasePer"></td>
         </tr>
         <tr>
           <td class="tableInfo">Closing Costs</td>
@@ -214,7 +212,7 @@
           <td id="closingTotal"></td>
           <td id="closingUnit"></td>
           <td id="closingSF"></td>
-          <td id="closing%"></td>
+          <td id="closingPer"></td>
         </tr>
         <tr class="colSummary">
           <td class="tableInfo">Total Uses</td>
@@ -222,7 +220,7 @@
           <td id="usesTotalSum"></td>
           <td id="usesUnitSum"></td>
           <td id="usesSFSum"></td>
-          <td id="uses%Sum"></td>
+          <td id="usesPerSum"></td>
         </tr>
       </table>
       <table>
@@ -271,105 +269,66 @@
         </tr>
       </table>
       <table>
-        <tr>
-          <th class="tableTitle" colspan="6">RETURNS SUMMARY</th>
-        </tr>
-        <div class="container col-sm-12">
-          <div class="row">
+        <div class="container">
+          <div class="col-sm-12">
             <div class="col-sm-3">
+                <tr>
+                  <th class="tableTitle" colspan="6">RETURNS SUMMARY</th>
+                </tr>
               <tr class="colTitle">
                 <td colspan="2">Unlevered</td>
+                <td colspan="2">Levered</td>
               </tr>
               <tr>
+                <td class="tableInfo">Net Profit</td>
+                <td id="unleveredNetProfit"></td>
                 <td class="tableInfo">Net Profit</td>
                 <td id="leveredNetProfit"></td>
               </tr>
               <tr>
                 <td class="tableInfo">Discount Rate</td>
-                <td><input id="leveredDiscount" type="text" name="unleveredDiscount"></td>
+                <td><input id="unleveredDiscount" type="text" name="unleveredDiscount"></td>
+                <td class="tableInfo">Discount Rate</td>
+                <td><input id="leveredDiscount" type="text" name="leveredDiscount"></td>
               </tr>
               <tr>
                 <td class="tableInfo">Present Value</td>
                 <td id="leveredPresValue"></td>
-              </tr>
-              <tr>
                 <td class="tableInfo">Net Present Value</td>
                 <td id="leveredNPV"></td>
               </tr>
               <tr>
                 <td class="tableInfo">Equity Multiple</td>
                 <td id="leveredEquityMult"></td>
-              </tr>
-              <tr>
                 <td class="tableInfo">IRR</td>
                 <td id="leveredIRR"></td>
               </tr>
               <tr>
                 <td class="tableInfo">IRR from CF (%)</td>
                 <td id="leveredIRRCF"></td>
-              </tr>
-              <tr>
                 <td class="tableInfo">IRR from Sale (%)</td>
                 <td id="leveredIRRSale"></td>
               </tr>
               <tr>
                 <td class="tableInfo">Cash-on-Cash</td>
-                <td id="leveredCOC"></td>
-              </tr>
-            </div>
-            <div class="col-sm-3">
-              <tr class="colTitle">
-                <td colspan="2">Levered</td>
-              </tr>
-              <tr>
-                <td class="tableInfo">Net Profit</td>
-                <td id="unleveredNetProfit"></td>
-              </tr>
-              <tr>
-                <td class="tableInfo">Discount Rate</td>
-                <td><input id="unleveredDiscount" type="text" name="unleveredDiscount"></td>
-              </tr>
-              <tr>
-                <td class="tableInfo">Present Value</td>
-                <td id="unleveredPresValue"></td>
-              </tr>
-              <tr>
-                <td class="tableInfo">Net Present Value</td>
-                <td id="unleveredNPV"></td>
-              </tr>
-              <tr>
-                <td class="tableInfo">Equity Multiple</td>
-                <td id="unleveredEquityMult"></td>
-              </tr>
-              <tr>
-                <td class="tableInfo">IRR</td>
-                <td id="unleveredIRR"></td>
-              </tr>
-              <tr>
-                <td class="tableInfo">IRR from CF (%)</td>
-                <td id="unleveredIRRCF"></td>
-              </tr>
-              <tr>
-                <td class="tableInfo">IRR from Sale (%)</td>
-                <td id="unleveredIRRSale"></td>
-              </tr>
-              <tr>
-                <td class="tableInfo">Cash-on-Cash</td>
                 <td id="unleveredCOC"></td>
+                <td class="tableInfo">Cash-on-Cash</td>
+                <td id="leveredCOC"></td>
               </tr>
             </div>
           </div>
         </div>
       </table>
     </section>
-    <section class="container" id="rightPane">
-      <table>
+    <!-- <section class="container" id="rightPane"> -->
+    <section class="container col-sm-4 pane">
+      <table id="currentFinancials">
         <tr>
           <th class="tableTitle" colspan="6">CURRENT FINANCIAL PERFORMANCE</th>
         </tr>
         <tr class="colTitle">
           <td>As of Date:</td>
-          <td><input id="startDate" type="date" name=""></td>
+          <td><input id="startDate" class="finInput" type="date" name=""></td>
           <td>Total</td>
           <td>$/Unit</td>
           <td>$/SF</td>
@@ -387,7 +346,7 @@
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Other Income</td>
-          <td><input id="otherIncomeTotal" type="number" name=""></td>
+          <td><input id="otherIncomeTotal" type="text" name=""></td>
           <td id="otherIncomeUnit"></td>
           <td id="otherIncomeSF"></td>
           <td id="otherIncome%"></td>
@@ -400,25 +359,28 @@
           <td id="grossIncome%"></td>
         </tr>
         <tr>
-          <td class="tableInfo" colspan="2">Less: Vacancy</td>
-          <td><input id="vacancyRate" type="number" name=""></td>
+          <td class="tableInfo" colspan="1">Less: Vacancy</td>
+          <td><input id="vacancyRate" type="text" name=""></td>
           <td id="vacancyTotal"></td>
           <td id="vacancyUnit"></td>
           <td id="VacancySF"></td>
+          <td></td>
         </tr>
         <tr>
-          <td class="tableInfo" colspan="2">Less: Concessions</td>
-          <td><input id="concessionRate" type="number" name=""></td>
+          <td class="tableInfo" colspan="1">Less: Concessions</td>
+          <td><input id="concessionRate" type="text" name=""></td>
           <td id="concessionTotal"></td>
           <td id="concessionUnit"></td>
           <td id="concessionSF"></td>
+          <td></td>
         </tr>
         <tr>
-          <td class="tableInfo" colspan="2">Less: Credit Loss</td>
-          <td><input id="creditLossRate" type="number" name=""></td>
+          <td class="tableInfo" colspan="1">Less: Credit Loss</td>
+          <td><input id="creditLossRate" type="text" name=""></td>
           <td id="creditLossTotal"></td>
           <td id="creditLossUnit"></td>
           <td id="creditLossSF"></td>
+          <td></td>
         </tr>
         <tr class="colSummary">
           <td class="tableInfo" colspan="2">Net Rental Income</td>
@@ -435,70 +397,70 @@
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Real Estate Taxes</td>
-          <td><input id="taxesTotal" type="number" name="taxes" value=""></td>
+          <td><input id="taxesTotal" class="finInput" type="text" name="taxes" value=""></td>
           <td id="taxesUnit"></td>
           <td id="taxesSF"></td>
           <td id="taxes%"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Insurance</td>
-          <td><input id="insuranceTotal" type="number" name="insurance" value=""></td>
+          <td><input id="insuranceTotal" class="finInput" type="text" name="insurance" value=""></td>
           <td id="insuranceUnit"></td>
           <td id="insuranceSF"></td>
           <td id="insurance%"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Utilities</td>
-          <td><input id="utilitiesTotal" type="number" name="utilities" value=""></td>
+          <td><input id="utilitiesTotal" class="finInput" type="text" name="utilities" value=""></td>
           <td id="utilitiesUnit"></td>
           <td id="utilitiesSF"></td>
           <td id="utilities%"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Payroll</td>
-          <td><input id="payrollTotal" type="number" name="payroll" value=""></td>
+          <td><input id="payrollTotal" class="finInput" type="text" name="payroll" value=""></td>
           <td id="payrollUnit"></td>
           <td id="payrollSF"></td>
           <td id="payroll%"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Repairs & Maintenance</td>
-          <td><input id="repairsTotal" type="number" name="repairs" value=""></td>
+          <td><input id="repairsTotal" class="finInput" type="text" name="repairs" value=""></td>
           <td id="repairsUnit"></td>
           <td id="repairsSF"></td>
           <td id="repairs%"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Contract Services</td>
-          <td><input id="contractTotal" type="number" name="contract" value=""></td>
+          <td><input id="contractTotal" class="finInput" type="text" name="contract" value=""></td>
           <td id="contractServicesUnit"></td>
           <td id="contractServicesSF"></td>
           <td id="contractServices%"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Turnover</td>
-          <td><input id="turnoverTotal" type="number" name="turnover" value=""></td>
+          <td><input id="turnoverTotal" class="finInput" type="text" name="turnover" value=""></td>
           <td id="turnoverUnit"></td>
           <td id="turnoverSF"></td>
           <td id="turnover%"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Sales & Marketing</td>
-          <td><input id="salesTotal" type="number" name="sales" value=""></td>
+          <td><input id="salesTotal" class="finInput" type="text" name="sales" value=""></td>
           <td id="salesUnit"></td>
           <td id="salesSF"></td>
           <td id="sales%"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Administrative</td>
-          <td><input id="adminTotal" type="number" name="admin" value=""></td>
+          <td><input id="adminTotal" class="finInput"type="text" name="admin" value=""></td>
           <td id="adminUnit"></td>
           <td id="adminSF"></td>
           <td id="admin%"></td>
         </tr>
         <tr>
           <td class="tableInfo">Management</td>
-          <td><input id="managementPercent" type="number" name="management" value=""></td>
+          <td><input id="managementPercent" class="perInput" type="text" name="management" value=""></td>
           <td id="managementTotal"></td>
           <td id="managementUnit"></td>
           <td id="managementSF"></td>
@@ -506,7 +468,7 @@
         </tr>
         <tr>
           <td class="tableInfo">Replacement Reserves</td>
-          <td><input id="reservesPercent" type="number" name="reserves" value=""></td>
+          <td><input id="reservesPercent" class="perInput" type="text" name="reserves" value=""></td>
           <td id="reservesTotal"></td>
           <td id="reservesUnit"></td>
           <td id="reservesSF"></td>

@@ -33,6 +33,20 @@ function propSelector() {
   }
 }
 
+function toDollar(num) {
+  num = "$" + num.toLocaleString(undefined, {minimumFractionDigits: 0});
+  return num;
+}
+
+function toPercent(num) {
+  num = (num * 100).toFixed(2) + "%";
+  return num;
+}
+
+function toNum(num) {
+  num = num.toLocaleString(undefined, {minimumFractionDigits: 0});
+}
+
 // Fill in table values
 function fillValues(property) {
   var prop = properties[property]
@@ -49,7 +63,13 @@ function fillValues(property) {
   floorplanCalcs(prop);
   purchaseInfoCalcs(prop);
   rentalIncome(prop);
-
+  currentExpenses(prop);
+  curExpensePercent(prop);
+  totalDebt(prop);
+  totalEquity(prop);
+  totalSources(prop);
+  sourcesUnit(prop)
+  uses(prop);
 }
 
 function fillProforma(property) {
@@ -86,35 +106,31 @@ function propInfo(prop) {
 
 function purchaseInfo(prop) {
   var info = prop.purchaseInfo;
-  for (item in info) {
-    if (typeof info[item] != "object") {
-      var val = "#" + item;
-      var td = document.querySelector(val);
-      td.value = info[item];
-    } else {
-      for (key in info[item]) {
-        var val = "#closing" + key;
-        var td = document.querySelector(val);
-        td.value = info[item][key];
-      }
-    }
-  }
+  var price = document.querySelector('#purchPrice')
+  price.value = "$" + info.purchPrice.toLocaleString(undefined, {minimumFractionDigits: 0});
+  var closingPer = document.querySelector('#closingCostPercent');
+  closingPer.value = toPercent(info.closing.CostPercent);
 }
 
 function purchaseInfoCalcs(prop) {
   var info = prop.purchaseInfo;
-  var closingCosts = info.purchPrice * info.closing.CostPercent;
-  closingCosts = "$" + closingCosts.toLocaleString(undefined, {minimumFractionDigits: 0});
+
+  var closingCostsNum = info.purchPrice * info.closing.CostPercent;
+  closingCosts = toDollar(closingCostsNum);
   document.querySelector('#closingCostAmount').innerText = closingCosts;
-  var totalCosts = info.purchPrice + parseInt(closingCosts);
-  totalCosts = "$" + totalCosts.toLocaleString(undefined, {minimumFractionDigits: 2});
+
+  var totalCostsNum = info.purchPrice + parseInt(closingCostsNum);
+  totalCosts = toDollar(totalCostsNum);
   document.querySelector('#totalCost').innerText = totalCosts;
-  var purchUnit = (parseInt(info.purchPrice / totalUnitCalc(prop))).toFixed(2);
-  purchUnit = "$" + purchUnit.toLocaleString(undefined, {minimumFractionDigits: 2});
+
+  var purchUnit = (parseInt(info.purchPrice / totalUnitCalc(prop)));
+  purchUnit = toDollar(purchUnit);
   document.querySelector('#purchCostUnit').innerText = purchUnit;
-  var totalUnit = (parseInt(totalCosts / totalUnitCalc(prop)).toFixed(2));
-  totalUnit = "$" + totalUnit.toLocaleString(undefined, {minimumFractionDigits: 0});
+
+  var totalUnitNum = (parseInt(totalCostsNum / totalUnitCalc(prop)));
+  totalUnit = toDollar(totalUnitNum);
   document.querySelector('#totalCostUnit').innerText = totalUnit;
+  return totalCostsNum;
 }
 
 function saleAssumptions(prop) {
@@ -126,7 +142,7 @@ function saleAssumptions(prop) {
     if (info[item] > 1) {
       td.value = info[item];
     } else {
-      td.value = ((info[item] * 100).toFixed(2)) + "%";
+      td.value = toPercent(info[item]);
     }
   }
 }
@@ -164,6 +180,10 @@ function rentalAssumptions(prop) {
   }
 }
 
+
+
+
+
 function rentalIncome(prop) {
   var data = prop.rentalAssumptions;
   var totalRent = 0;
@@ -171,12 +191,14 @@ function rentalIncome(prop) {
     totalRent += data[i].TotalUnits * data[i].RentUnit;
   }
   totalRent = totalRent * 12;
-  document.querySelector('#rentIncomeTotal').innerText = totalRent;
+  totalRentPrint = toDollar(totalRent);
+  document.querySelector('#rentIncomeTotal').innerText = totalRentPrint;
   var otherIncome = prop.currentFinancials.revenue.total.other;
-  document.querySelector('#otherIncomeTotal').value = otherIncome;
+  otherIncomePrint = toDollar(otherIncome);
+  document.querySelector('#otherIncomeTotal').value = otherIncomePrint;
   var grossRent = totalRent + otherIncome;
-  console.log(typeof grossRent);
-  document.querySelector('#grossIncomeTotal').innerText = grossRent;
+  grossRentPrint = toDollar(grossRent);
+  document.querySelector('#grossIncomeTotal').innerText = grossRentPrint;
   return totalRent;
 }
 
@@ -185,7 +207,7 @@ function returnsDiscountRate(prop) {
   for (key in info) {
     var val = "#" + key + "Discount";
     var td = document.querySelector(val);
-    var percent = ((info[key].discountRate) * 100).toFixed(2) + "%";
+    var percent = toPercent(info[key].discountRate);;
     var text = document.createTextNode(percent);
     td.value = percent;
   }
@@ -193,7 +215,32 @@ function returnsDiscountRate(prop) {
 
 function currentFinancials(prop) {
   var info = prop.currentFinancials;
-  // console.log(info);
+  var vacancy = info.revenue.total.vacancy;
+  document.querySelector('#vacancyRate').value = toPercent(vacancy);
+  var concessions = info.revenue.total.concessions;
+  document.querySelector('#concessionRate').value = toPercent(concessions);
+  var credit = info.revenue.total.creditLoss;
+  document.querySelector('#creditLossRate').value = toPercent(credit);
+  // var netRent =
+}
+
+function currentExpenses(prop) {
+  var info = prop.currentFinancials.expenses.total;
+  var totalExpenses = 0;
+  for (key in info) {
+    var val = "#" + key + "Total";
+    var td = document.querySelector(val);
+    var num
+    td.value = toDollar(info[key]);
+  }
+}
+
+function curExpensePercent(prop) {
+  var info = prop.currentFinancials.expenses.total;
+  var management = info.management;
+  document.querySelector('#managementPercent').value = toPercent(management);
+  var reserves = info.reserves;
+  document.querySelector('#reservesPercent').value = toPercent(reserves);
 }
 
 function totalUnitCalc(prop) {
@@ -205,6 +252,74 @@ function totalUnitCalc(prop) {
   }
   units.value = totalUnits;
   return totalUnits;
+}
+
+function totalSFCalc(prop) {
+  var info = prop.rentalAssumptions;
+  var totalSF = 0;
+  for (var i = 0; i < info.length - 1; i++) {
+    totalSF += info[i].TotalUnits * info[i].SFUnit;
+  }
+  return totalSF;
+}
+
+function totalDebt(prop) {
+  var totalSources = purchaseInfoCalcs(prop);
+  var ltv = prop.financing.ltv;
+  var debt = totalSources * ltv
+  document.querySelector('#debtTotal').innerText = toDollar(debt);
+  return debt;
+}
+
+function totalEquity(prop) {
+  var totalSources = purchaseInfoCalcs(prop);
+  var debt = totalDebt(prop);
+  var equity = totalSources - debt;
+  document.querySelector('#equityTotal').innerText = toDollar(equity);
+  return equity;
+}
+
+function totalSources(prop) {
+  document.querySelector('#sourcesTotalSum').innerText = toDollar(purchaseInfoCalcs(prop));
+  return purchaseInfoCalcs(prop);
+}
+
+function sourcesUnit(prop) {
+  var equity = totalEquity(prop);
+  var debt = totalDebt(prop);
+  var total = totalSources(prop);
+  var units = totalUnitCalc(prop);
+  var sf = totalSFCalc(prop);
+  document.querySelector('#equityUnit').innerText = toDollar(equity / units);
+  document.querySelector('#debtUnit').innerText = toDollar(debt / units);
+  document.querySelector('#sourcesUnitSum').innerText = toDollar(total / units);
+  document.querySelector('#equitySF').innerText = toDollar(equity / sf);
+  document.querySelector('#debtSF').innerText = toDollar(debt / sf);
+  document.querySelector('#sourcesSFSum').innerText = toDollar(total / sf);
+  document.querySelector('#equityPer').innerText = toPercent(equity / total);
+  document.querySelector('#debtPer').innerText = toPercent(debt / total);
+  document.querySelector('#sourcesPerSum').innerText = toPercent(total / total);
+}
+
+function uses(prop) {
+  var info = prop.purchaseInfo;
+  var price = info.purchPrice;
+  var closing = info.purchPrice * info.closing.CostPercent;
+  var total = price + closing;
+  var units = totalUnitCalc(prop);
+  var sf = totalSFCalc(prop);
+  document.querySelector('#purchaseTotal').innerText = toDollar(price);
+  document.querySelector('#closingTotal').innerText = toDollar(closing);
+  document.querySelector('#usesTotalSum').innerText = toDollar(total);
+  document.querySelector('#purchaseUnit').innerText = toDollar(price / units);
+  document.querySelector('#closingUnit').innerText = toDollar(closing / units);
+  document.querySelector('#usesUnitSum').innerText = toDollar(total / units);
+  document.querySelector('#purchaseSF').innerText = toDollar(price / sf);
+  document.querySelector('#closingSF').innerText = toDollar(closing / sf);
+  document.querySelector('#usesSFSum').innerText = toDollar(total / sf);
+  document.querySelector('#purchasePer').innerText = toPercent(price / total);
+  document.querySelector('#closingPer').innerText = toPercent(closing / total);
+  document.querySelector('#usesPerSum').innerText = toPercent(total / total);
 }
 
 function floorplanCalcs(prop) {
@@ -283,7 +398,6 @@ function proformaOtherIncome(prop, saleYear) {
     otherGrowth[i] = other;
     el.innerHTML = other;
   }
-  console.log(otherGrowth);
   return otherGrowth;
 }
 
@@ -304,12 +418,9 @@ function grossRentIncome(prop, saleYear) {
 function vacancy(prop, saleYear) {
   var data = prop.marketRentalAssumptions[0];
   var grossIncome = grossRentIncome(prop, saleYear);
-  console.log(grossIncome);
   for (key in grossIncome) {
     var value = grossIncome[key];
-    console.log(typeof value);
     value = parseInt(value);
-    console.log("Value", value);
   }
   var vacancyRate = {};
   for (var i = 1; i <= saleYear; i++) {

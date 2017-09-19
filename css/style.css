@@ -1,0 +1,198 @@
+body {
+  font-family: Roboto;
+  color: white;
+  /*background-image: url(img/chrome.jpg); no-repeat center center fixed;*/
+  background-color: black;
+  background-size: cover;
+  margin: 0;
+}
+
+nav {
+  text-align: center;
+  background-color: black;
+  line-height: 50px;
+  margin: 0;
+  border-bottom: 3px solid rgba(66, 194, 244, 1);
+  /*position: fixed;*/
+}
+
+nav ul {
+  margin: 0;
+}
+
+aside {
+  float: left;
+  margin-top: 50px;
+}
+
+#propertySelector {
+  width: 100px;
+  display: block;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+hr {
+  border-color: white;
+  margin: 30px;
+}
+
+#navBar li {
+  list-style: none;
+  display: inline-block;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  text-decoration: none;
+}
+
+#navBar li:hover {
+  color: #5779af;
+}
+
+/*#navBar li:active {
+  border: 1px solid white;
+}*/
+
+#homePic {
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  -webkit-transition: background-image 6s ease-in-out;
+  transition: background-image 6s ease-in-out;
+}
+
+
+
+img {
+  position: absolute;
+  left: 0;
+  opacity: 1;
+  -webkit-transition: opacity 4s ease;
+}
+
+section {
+  position: relative;
+}
+table, th {
+  /*border: 1px solid lightgray;*/
+  padding: 5px;
+  border-collapse: collapse;
+}
+
+table {
+  margin: 10px;
+  /*border-radius: 20px;*/
+  border: 2px solid gray;
+}
+
+table:hover {
+  /*box-shadow: 0 0 3px 3px rgba(66, 194, 244, 1);*/
+}
+
+input:hover {
+  /*box-shadow: 0 0 2px 2px rgba(237, 9, 32, 1);*/
+}
+
+tr {
+  text-align: center;
+  border-bottom: 1px solid rgba(244, 242, 242, 0.2);
+
+}
+
+td {
+  font-size: .8em;
+  width: 10%;
+  background-color: rgb(43, 45, 45);
+  padding: 2px;
+}
+
+.tableInfo {
+  background: black;
+  text-align: left;
+  width: 10%;
+  padding-left: 10px;
+}
+
+.tableTitle {
+  border-bottom: 1px solid white;
+  background: black;
+}
+
+input {
+  width: 90%;
+  height: 70%;
+  margin: 1px;
+  box-sizing: border-box;
+}
+
+input {
+  text-align: center;
+}
+
+.button {
+  background-color: rgb(113, 115, 117);
+}
+
+#closingPer {
+  border-right: 1px solid rgba(244, 242, 242, 0.7);
+}
+
+#container {
+  margin: auto;
+  overflow: auto;
+}
+
+#leftPane {
+  float: left;
+  width: 30%;
+}
+
+#middlePane {
+  float: left;
+  width: 40%;
+}
+
+#rightPane {
+  float: left;
+  width: 30%;
+}
+
+.colSummary {
+  background-color: rgba(199, 204, 204);
+}
+
+.returnSummary {
+  /*float: left;*/
+  width: 50%;
+}
+
+.tableSectionTitle {
+  text-align: left;
+  padding-left: 5px;
+}
+
+.colTitle {
+  color: red;
+  background: grey;
+}
+
+.irrSectionLeft {
+  float:left;
+}
+
+.irrSectionRight {
+  float: right;
+}
+
+.centerColumn {
+  text-align: center;
+}
+
+
+/*.filler {
+  line-height: 16px;
+  height: 16px;
+  display: inline-block;
+  empty-cells: show;
+}*/

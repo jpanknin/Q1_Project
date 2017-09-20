@@ -171,27 +171,10 @@ input {
   border-right: 1px solid rgba(244, 242, 242, 0.7);
 }
 
-#container {
-  margin: a;
-  overflow: auto;
-
-}
-
-.pane {
-  float: left;
+.col {
   padding-left: 5px;
   padding-right: 5px;
 }
-
-/*#middlePane {
-  float: left;
-  /*width: 40%;*/
-}
-
-#rightPane {
-  float: left;
-  /*width: 30%;*/
-}*/
 
 .colSummary {
   background-color: rgba(199, 204, 204);
@@ -240,6 +223,7 @@ section > p.accordion {
 .centerColumn {
   text-align: center;
 }
+
 
 
 /*.filler {

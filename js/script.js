@@ -1,22 +1,22 @@
 // Fill in the input box for the properties available for selection
 //https://stackoverflow.com/questions/78932/how-do-i-programmatically-set-the-value-of-a-select-box-element-using-javascript
 
-var props = JSON.stringify(properties);
-console.log(props);
-
-$.getJSON("props.json", function(data) {
-  console.log(data);
-})
+// var props = JSON.stringify(properties);
+// console.log("Props", props);
+//
+// $.getJSON("props.json", function(data) {
+//   console.log("Data", data);
+// })
 
 window.onload = fillSelectBox(properties);
 
 
 function fillSelectBox(properties) {
   for (var i = 0; i < properties.length; i++) {
-    // console.log(properties[i].propInfo.propName);
     var optionBox = document.querySelector('#propertySelector');
     var option = document.createElement('option');
     var choice = document.createTextNode(properties[i].propInfo.propAddress);
+    console.log("Hello");
     option.value = properties[i].propInfo.propAddress;
     option.appendChild(choice);
     optionBox.appendChild(option);
@@ -33,6 +33,7 @@ var propSelect = document.querySelector('#propertySelectorButn');
 propSelect.addEventListener('click', propSelector);
 
 function propSelector() {
+  // console.log("Hello");
   property = document.querySelector('#propertySelector').value;
   for (var i = 0; i < properties.length; i++) {
     if (properties[i].propInfo.propAddress == property) {

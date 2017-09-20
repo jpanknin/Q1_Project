@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="container col-sm-12">
+<body>
   <nav>
     <ul id="navBar">
       <li><a href="index.html">Home</a></li>
@@ -19,16 +19,15 @@
       <li>Maps</li>
     </ul>
   </nav>
-  <aside class="selectionBar col-sm-1">
+  <aside class="selectionBar col-1">
     <form onsubmit="propSelector()">
-      <select id="propertySelector" class="" name="">
-
-        </select>
+      <select id="propertySelector" class="" name=""></select>
       <input id="propertySelectorButn" type="button" name="" value="Submit">
     </form>
   </aside>
-  <div class="container">
-      <div class="col-sm-3 pane">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col col-sm-3 pane">
         <section>
           <table>
             <tr>
@@ -153,1026 +152,1035 @@
           </table>
         </section>
       </div>
-      <div class="col-sm-5 pane">
-      <section>
-        <table>
-          <tr>
-            <th class="tableTitle" colspan="6">SOURCES AND USES</th>
-          </tr>
-          <tr class="colTitle" class="colSummary">
-            <td colspan="2"></td>
-            <td>Total</td>
-            <td>$/Unit</td>
-            <td>$/SF</td>
-            <td>% of Total</td>
-          </tr>
-          <tr>
-            <td class="tableSectionTitle" colspan="6"><i><u>Sources</u></i></td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Equity</td>
-            <td></td>
-            <td id="equityTotal"></td>
-            <td id="equityUnit"></td>
-            <td id="equitySF"></td>
-            <td id="equityPer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Debt</td>
-            <td></td>
-            <td id="debtTotal"></td>
-            <td id="debtUnit"></td>
-            <td id="debtSF"></td>
-            <td id="debtPer"></td>
-          </tr>
-          <tr class="colSummary">
-            <td class="tableInfo">Total Sources</td>
-            <td></td>
-            <td id="sourcesTotalSum"></td>
-            <td id="sourcesUnitSum"></td>
-            <td id="sourcesSFSum"></td>
-            <td id="sourcesPerSum"></td>
-          </tr>
-          <tr>
-            <td colspan="6" class="filler">-</td>
-          </tr>
-          <tr>
-            <td class="tableSectionTitle" colspan="6"><i><u>Uses</u></i></td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Purchase Price</td>
-            <td></td>
-            <td id="purchaseTotal"></td>
-            <td id="purchaseUnit"></td>
-            <td id="purchaseSF"></td>
-            <td id="purchasePer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Closing Costs</td>
-            <td></td>
-            <td id="closingTotal"></td>
-            <td id="closingUnit"></td>
-            <td id="closingSF"></td>
-            <td id="closingPer"></td>
-          </tr>
-          <tr class="colSummary">
-            <td class="tableInfo">Total Uses</td>
-            <td></td>
-            <td id="usesTotalSum"></td>
-            <td id="usesUnitSum"></td>
-            <td id="usesSFSum"></td>
-            <td id="usesPerSum"></td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <th class="tableTitle" colspan="6">RENTAL RATE ASSUMPTIONS</th>
-          </tr>
-          <tr class="colTitle">
-            <td>Floorplan</td>
-            <td>Total Units</td>
-            <td>Rent/Unit</td>
-            <td>SF/Unit</td>
-            <td>Total SF</td>
-            <td>Rent/SF</td>
-          </tr>
-          <tr>
-            <td><input id="fp1Type" type="text" name="" value=""></td>
-            <td><input id="fp1TotalUnits" type="number" name="" value=""></td>
-            <td><input id="fp1RentUnit" type="number" name="" value=""></td>
-            <td><input id="fp1SFUnit" type="number" name="" value=""></td>
-            <td id="fp1TotalSF"></td>
-            <td id="fp1RentSF"></td>
-          </tr>
-          <tr>
-            <td><input id="fp2Type" type="text" name="" value=""></td>
-            <td><input id="fp2TotalUnits" type="number" name="" value=""></td>
-            <td><input id="fp2RentUnit" type="number" name="" value=""></td>
-            <td><input id="fp2SFUnit" type="number" name="" value=""></td>
-            <td id="fp2TotalSF"></td>
-            <td id="fp2RentSF"></td>
-          </tr>
-          <tr>
-            <td><input id="fp3Type" type="text" name="" value=""></td>
-            <td><input id="fp3TotalUnits" type="number" name="" value=""></td>
-            <td><input id="fp3RentUnit" type="number" name="" value=""></td>
-            <td><input id="fp3SFUnit" type="number" name="" value=""></td>
-            <td id="fp3TotalSF"></td>
-            <td id="fp3RentSF"></td>
-          </tr>
-          <tr class="colSummary">
-            <td>Totals</td>
-            <td id="rentalTotalUnits"></td>
-            <td id="rentalTotalSF"></td>
-            <td id="rentalAvgSF"></td>
-            <td id="rentalPriceUnit"></td>
-            <td id="rentalPriceSF"></td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <th class="tableTitle" colspan="6">RETURNS SUMMARY</th>
-          </tr>
-          <tr class="colTitle">
-            <td colspan="2">Unlevered</td>
-            <td colspan="2">Levered</td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Net Profit</td>
-            <td id="unleveredNetProfit"></td>
-            <td class="tableInfo">Net Profit</td>
-            <td id="leveredNetProfit"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Discount Rate</td>
-            <td><input id="unleveredDiscount" type="text" name="unleveredDiscount"></td>
-            <td class="tableInfo">Discount Rate</td>
-            <td><input id="leveredDiscount" type="text" name="leveredDiscount"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Present Value</td>
-            <td id="leveredPresValue"></td>
-            <td class="tableInfo">Net Present Value</td>
-            <td id="leveredNPV"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Equity Multiple</td>
-            <td id="leveredEquityMult"></td>
-            <td class="tableInfo">IRR</td>
-            <td id="leveredIRR"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo">IRR from CF (%)</td>
-            <td id="leveredIRRCF"></td>
-            <td class="tableInfo">IRR from Sale (%)</td>
-            <td id="leveredIRRSale"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Cash-on-Cash</td>
-            <td id="unleveredCOC"></td>
-            <td class="tableInfo">Cash-on-Cash</td>
-            <td id="leveredCOC"></td>
-          </tr>
-        </table>
-      </section>
-    </div>
-      <section class="col-sm-4 pane">
-        <table id="currentFinancials">
-          <tr>
-            <th class="tableTitle" colspan="6">CURRENT FINANCIAL PERFORMANCE</th>
-          </tr>
-          <tr class="colTitle">
-            <td>As of Date:</td>
-            <td><input id="startDate" class="finInput" type="date" name=""></td>
-            <td>Total</td>
-            <td>$/Unit</td>
-            <td>$/SF</td>
-            <td>% of Total</td>
-          </tr>
-          <tr>
-            <td class="tableSectionTitle" colspan="6"><i><u>Revenue</u></i></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Rental Income</td>
-            <td id="rentIncomeTotal"></td>
-            <td id="rentIncomeUnit"></td>
-            <td id="rentIncomeSF"></td>
-            <td id="rentIncomePer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Other Income</td>
-            <td><input id="otherIncomeTotal" type="text" name=""></td>
-            <td id="otherIncomeUnit"></td>
-            <td id="otherIncomeSF"></td>
-            <td id="otherIncomePer"></td>
-          </tr>
-          <tr class="colSummary">
-            <td class="tableInfo" colspan="2">Gross Rental Income</td>
-            <td id="grossIncomeTotal"></td>
-            <td id="grossIncomeUnit"></td>
-            <td id="grossIncomeSF"></td>
-            <td id="grossIncomePer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="1">Less: Vacancy</td>
-            <td><input id="vacancyRate" type="text" name=""></td>
-            <td id="vacancyTotal"></td>
-            <td id="vacancyUnit"></td>
-            <td id="vacancySF"></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="1">Less: Concessions</td>
-            <td><input id="concessionRate" type="text" name=""></td>
-            <td id="concessionTotal"></td>
-            <td id="concessionUnit"></td>
-            <td id="concessionSF"></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="1">Less: Credit Loss</td>
-            <td><input id="creditLossRate" type="text" name=""></td>
-            <td id="creditLossTotal"></td>
-            <td id="creditLossUnit"></td>
-            <td id="creditLossSF"></td>
-            <td></td>
-          </tr>
-          <tr class="colSummary">
-            <td class="tableInfo" colspan="2">Net Rental Income</td>
-            <td id="netRentTotal"></td>
-            <td id="netRentUnit"></td>
-            <td id="netRentSF"></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td colspan="6">.</td>
-          </tr>
-          <tr>
-            <td class="tableSectionTitle" colspan="6"><i><u>Operating Expenses</u></i></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Real Estate Taxes</td>
-            <td><input id="taxesTotal" class="finInput" type="text" name="taxes" value=""></td>
-            <td id="taxesUnit"></td>
-            <td id="taxesSF"></td>
-            <td id="taxesPer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Insurance</td>
-            <td><input id="insuranceTotal" class="finInput" type="text" name="insurance" value=""></td>
-            <td id="insuranceUnit"></td>
-            <td id="insuranceSF"></td>
-            <td id="insurancePer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Utilities</td>
-            <td><input id="utilitiesTotal" class="finInput" type="text" name="utilities" value=""></td>
-            <td id="utilitiesUnit"></td>
-            <td id="utilitiesSF"></td>
-            <td id="utilitiesPer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Payroll</td>
-            <td><input id="payrollTotal" class="finInput" type="text" name="payroll" value=""></td>
-            <td id="payrollUnit"></td>
-            <td id="payrollSF"></td>
-            <td id="payrollPer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Repairs & Maintenance</td>
-            <td><input id="repairsTotal" class="finInput" type="text" name="repairs" value=""></td>
-            <td id="repairsUnit"></td>
-            <td id="repairsSF"></td>
-            <td id="repairsPer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Contract Services</td>
-            <td><input id="contractTotal" class="finInput" type="text" name="contract" value=""></td>
-            <td id="contractUnit"></td>
-            <td id="contractSF"></td>
-            <td id="contractPer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Turnover</td>
-            <td><input id="turnoverTotal" class="finInput" type="text" name="turnover" value=""></td>
-            <td id="turnoverUnit"></td>
-            <td id="turnoverSF"></td>
-            <td id="turnoverPer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Sales & Marketing</td>
-            <td><input id="salesTotal" class="finInput" type="text" name="sales" value=""></td>
-            <td id="salesUnit"></td>
-            <td id="salesSF"></td>
-            <td id="salesPer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Administrative</td>
-            <td><input id="adminTotal" class="finInput" type="text" name="admin" value=""></td>
-            <td id="adminUnit"></td>
-            <td id="adminSF"></td>
-            <td id="adminPer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Management</td>
-            <td><input id="managementPercent" class="perInput" type="text" name="management" value=""></td>
-            <td id="managementTotal"></td>
-            <td id="managementUnit"></td>
-            <td id="managementSF"></td>
-            <td id="managementPer"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Replacement Reserves</td>
-            <td><input id="reservesPercent" class="perInput" type="text" name="reserves" value=""></td>
-            <td id="reservesTotal"></td>
-            <td id="reservesUnit"></td>
-            <td id="reservesSF"></td>
-            <td id="reserves%"></td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <th class="tableTitle" colspan="6">MARKET RENTAL ASSUMPTIONS</th>
-          </tr>
-          <tr class="colTitle" id="marketRentAssumptions">
-            <td></td>
-            <td>Revenue</td>
-            <td>Expenses</td>
-            <td>Vacancy</td>
-            <td>Concessions</td>
-            <td>Credit Loss</td>
-          </tr>
-          <tr>
-            <td>Year 1</td>
-            <td><input id="year1Revenue" type="text" name=""></td>
-            <td><input id="year1Expense" type="text" name=""></td>
-            <td><input id="year1Vacancy" type="text" name=""></td>
-            <td><input id="year1Concessions" type="text" name=""></td>
-            <td><input id="year1CreditLoss" type="text" name=""></td>
-          </tr>
-          <tr>
-            <td>Year 2</td>
-            <td><input id="year2Revenue" type="text" name=""></td>
-            <td><input id="year2Expense" type="text" name=""></td>
-            <td><input id="year2Vacancy" type="text" name=""></td>
-            <td><input id="year2Concessions" type="text" name=""></td>
-            <td><input id="year2CreditLoss" type="text" name=""></td>
-          </tr>
-          <tr>
-            <td>Year 3</td>
-            <td><input id="year3Revenue" type="text" name=""></td>
-            <td><input id="year3Expense" type="text" name=""></td>
-            <td><input id="year3Vacancy" type="text" name=""></td>
-            <td><input id="year3Concessions" type="text" name=""></td>
-            <td><input id="year3CreditLoss" type="text" name=""></td>
-          </tr>
-          <tr>
-            <td>Year 4</td>
-            <td><input id="year4Revenue" type="text" name=""></td>
-            <td><input id="year4Expense" type="text" name=""></td>
-            <td><input id="year4Vacancy" type="text" name=""></td>
-            <td><input id="year4Concessions" type="text" name=""></td>
-            <td><input id="year4CreditLoss" type="text" name=""></td>
-          </tr>
-          <tr>
-            <td>Year 5</td>
-            <td><input id="year5Revenue" type="text" name=""></td>
-            <td><input id="year5Expense" type="text" name=""></td>
-            <td><input id="year5Vacancy" type="text" name=""></td>
-            <td><input id="year5Concessions" type="text" name=""></td>
-            <td><input id="year5CreditLoss" type="text" name=""></td>
-          </tr>
-          <tr>
-            <td>Year 6</td>
-            <td><input id="year6Revenue" type="text" name=""></td>
-            <td><input id="year6Expense" type="text" name=""></td>
-            <td><input id="year6Vacancy" type="text" name=""></td>
-            <td><input id="year6Concessions" type="text" name=""></td>
-            <td><input id="year6CreditLoss" type="text" name=""></td>
-          </tr>
-          <tr>
-            <td>Year 7</td>
-            <td><input id="year7Revenue" type="text" name=""></td>
-            <td><input id="year7Expense" type="text" name=""></td>
-            <td><input id="year7Vacancy" type="text" name=""></td>
-            <td><input id="year7Concessions" type="text" name=""></td>
-            <td><input id="year7CreditLoss" type="text" name=""></td>
-          </tr>
-          <tr>
-            <td>Year 8</td>
-            <td><input id="year8Revenue" type="text" name=""></td>
-            <td><input id="year8Expense" type="text" name=""></td>
-            <td><input id="year8Vacancy" type="text" name=""></td>
-            <td><input id="year8Concessions" type="text" name=""></td>
-            <td><input id="year8CreditLoss" type="text" name=""></td>
-          </tr>
-          <tr>
-            <td>Year 9</td>
-            <td><input id="year9Revenue" type="text" name=""></td>
-            <td><input id="year9Expense" type="text" name=""></td>
-            <td><input id="year9Vacancy" type="text" name=""></td>
-            <td><input id="year9Concessions" type="text" name=""></td>
-            <td><input id="year9CreditLoss" type="text" name=""></td>
-          </tr>
-          <tr>
-            <td>Year 10</td>
-            <td><input id="year10Revenue" type="text" name=""></td>
-            <td><input id="year10Expense" type="text" name=""></td>
-            <td><input id="year10Vacancy" type="text" name=""></td>
-            <td><input id="year10Concessions" type="text" name=""></td>
-            <td><input id="year10CreditLoss" type="text" name=""></td>
-          </tr>
-        </table>
-      </section>
-    </div>
-
-  <!-- <hr> -->
-
-  <div class="container">
-    <section>
-      <!-- <p class="accordion">Proforma</p> -->
-      <div class="mainSection">
-        <table id="proforma" class="col-md-12">
-          <tr>
-            <th colspan="11">Proforma</th>
-          </tr>
-          <tr id="proformaYear">
-            <th></th>
-            <!-- <th class="proformaYearRow" id="proformaYear-1">Year</th>
-            <th class="proformaYearRow" id="proformaYear-2"></th>
-            <th class="proformaYearRow" id="proformaYear-3"></th>
-            <th class="proformaYearRow" id="proformaYear-4"></th>
-            <th class="proformaYearRow" id="proformaYear-5"></th>
-            <th class="proformaYearRow" id="proformaYear-6"></th>
-            <th class="proformaYearRow" id="proformaYear-7"></th>
-            <th class="proformaYearRow" id="proformaYear-8"></th>
-            <th class="proformaYearRow" id="proformaYear-9"></th>
-            <th class="proformaYearRow" id="proformaYear-10"></th>
-            <th class="proformaYearRow" id="proformaYear-11"></th> -->
-          </tr>
-          <tr>
-            <th>Year End:</th>
-            <th class="proformaDateRow" id="proformaDate-1">Date</th>
-            <th class="proformaDateRow" id="proformaDate-2"></th>
-            <th class="proformaDateRow" id="proformaDate-3"></th>
-            <th class="proformaDateRow" id="proformaDate-4"></th>
-            <th class="proformaDateRow" id="proformaDate-5"></th>
-            <th class="proformaDateRow" id="proformaDate-6"></th>
-            <th class="proformaDateRow" id="proformaDate-7"></th>
-            <th class="proformaDateRow" id="proformaDate-8"></th>
-            <th class="proformaDateRow" id="proformaDate-9"></th>
-            <th class="proformaDateRow" id="proformaDate-10"></th>
-            <th class="proformaDateRow" id="proformaDate-11"></th>
-          </tr>
-          <tr>
-            <td class="tableSectionTitle" colspan="11"><u><i>Revenue</i></u></td>
-          </tr>
-          <tr>
-            <td id="proformaRentalIncome" class="tableInfo" colspan="2">Rental Income</td>
-            <td id="proformaRentalIncome-1">Info</td>
-            <td id="proformaRentalIncome-2"></td>
-            <td id="proformaRentalIncome-3"></td>
-            <td id="proformaRentalIncome-4"></td>
-            <td id="proformaRentalIncome-5"></td>
-            <td id="proformaRentalIncome-6"></td>
-            <td id="proformaRentalIncome-7"></td>
-            <td id="proformaRentalIncome-8"></td>
-            <td id="proformaRentalIncome-9"></td>
-            <td id="proformaRentalIncome-10"></td>
-            <td id="proformaRentalIncome-11"></td>
-          </tr>
-          <tr>
-            <td id="proformaOtherIncome" class="tableInfo" colspan="2">Other Income</td>
-            <td id="proformaOtherIncome-1">Info</td>
-            <td id="proformaOtherIncome-2"></td>
-            <td id="proformaOtherIncome-3"></td>
-            <td id="proformaOtherIncome-4"></td>
-            <td id="proformaOtherIncome-5"></td>
-            <td id="proformaOtherIncome-6"></td>
-            <td id="proformaOtherIncome-7"></td>
-            <td id="proformaOtherIncome-8"></td>
-            <td id="proformaOtherIncome-9"></td>
-            <td id="proformaOtherIncome-10"></td>
-            <td id="proformaOtherIncome-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Gross Rental Income</td>
-            <td id="proformaGrossIncome-1">Info</td>
-            <td id="proformaGrossIncome-2"></td>
-            <td id="proformaGrossIncome-3"></td>
-            <td id="proformaGrossIncome-4"></td>
-            <td id="proformaGrossIncome-5"></td>
-            <td id="proformaGrossIncome-6"></td>
-            <td id="proformaGrossIncome-7"></td>
-            <td id="proformaGrossIncome-8"></td>
-            <td id="proformaGrossIncome-9"></td>
-            <td id="proformaGrossIncome-10"></td>
-            <td id="proformaGrossIncome-11"></td>
-          </tr>
-          <tr>
-            <!-- Need a blank row here -->
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Less: Vacancy</td>
-            <td id="proformaVacancy-1">Info</td>
-            <td id="proformaVacancy-2"></td>
-            <td id="proformaVacancy-3"></td>
-            <td id="proformaVacancy-4"></td>
-            <td id="proformaVacancy-5"></td>
-            <td id="proformaVacancy-6"></td>
-            <td id="proformaVacancy-7"></td>
-            <td id="proformaVacancy-8"></td>
-            <td id="proformaVacancy-9"></td>
-            <td id="proformaVacancy-10"></td>
-            <td id="proformaVacancy-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Less: Concessions</td>
-            <td id="proformaConcessions-1">Info</td>
-            <td id="proformaConcessions-2"></td>
-            <td id="proformaConcessions-3"></td>
-            <td id="proformaConcessions-4"></td>
-            <td id="proformaConcessions-5"></td>
-            <td id="proformaConcessions-6"></td>
-            <td id="proformaConcessions-7"></td>
-            <td id="proformaConcessions-8"></td>
-            <td id="proformaConcessions-9"></td>
-            <td id="proformaConcessions-10"></td>
-            <td id="proformaConcessions-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Less: Credit Loss</td>
-            <td id="proformaCreditLoss-1">Info</td>
-            <td id="proformaCreditLoss-2"></td>
-            <td id="proformaCreditLoss-3"></td>
-            <td id="proformaCreditLoss-4"></td>
-            <td id="proformaCreditLoss-5"></td>
-            <td id="proformaCreditLoss-6"></td>
-            <td id="proformaCreditLoss-7"></td>
-            <td id="proformaCreditLoss-8"></td>
-            <td id="proformaCreditLoss-9"></td>
-            <td id="proformaCreditLoss-10"></td>
-            <td id="proformaCreditLoss-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Net Rental Income</td>
-            <td id="proformaNetIncome-1">Info</td>
-            <td id="proformaNetIncome-2"></td>
-            <td id="proformaNetIncome-3"></td>
-            <td id="proformaNetIncome-4"></td>
-            <td id="proformaNetIncome-5"></td>
-            <td id="proformaNetIncome-6"></td>
-            <td id="proformaNetIncome-7"></td>
-            <td id="proformaNetIncome-8"></td>
-            <td id="proformaNetIncome-9"></td>
-            <td id="proformaNetIncome-10"></td>
-            <td id="proformaNetIncome-11"></td>
-          </tr>
-          <tr>
-            <!-- Blank row here -->
-          </tr>
-          <tr>
-            <td class="tableSectionTitle">Operating Expenses</td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Real Estate Taxes</td>
-            <td id="proformaTaxes-1">Info</td>
-            <td id="proformaTaxes-2"></td>
-            <td id="proformaTaxes-3"></td>
-            <td id="proformaTaxes-4"></td>
-            <td id="proformaTaxes-5"></td>
-            <td id="proformaTaxes-6"></td>
-            <td id="proformaTaxes-7"></td>
-            <td id="proformaTaxes-8"></td>
-            <td id="proformaTaxes-9"></td>
-            <td id="proformaTaxes-10"></td>
-            <td id="proformaTaxes-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Insurance</td>
-            <td id="proformaInsurance-1">Info</td>
-            <td id="proformaInsurance-2"></td>
-            <td id="proformaInsurance-3"></td>
-            <td id="proformaInsurance-4"></td>
-            <td id="proformaInsurance-5"></td>
-            <td id="proformaInsurance-6"></td>
-            <td id="proformaInsurance-7"></td>
-            <td id="proformaInsurance-8"></td>
-            <td id="proformaInsurance-9"></td>
-            <td id="proformaInsurance-10"></td>
-            <td id="proformaInsurance-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Utilities</td>
-            <td id="proformaUtilities-1">Info</td>
-            <td id="proformaUtilities-2"></td>
-            <td id="proformaUtilities-3"></td>
-            <td id="proformaUtilities-4"></td>
-            <td id="proformaUtilities-5"></td>
-            <td id="proformaUtilities-6"></td>
-            <td id="proformaUtilities-7"></td>
-            <td id="proformaUtilities-8"></td>
-            <td id="proformaUtilities-9"></td>
-            <td id="proformaUtilities-10"></td>
-            <td id="proformaUtilities-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Payroll</td>
-            <td id="proformaPayroll-1">Info</td>
-            <td id="proformaPayroll-2"></td>
-            <td id="proformaPayroll-3"></td>
-            <td id="proformaPayroll-4"></td>
-            <td id="proformaPayroll-5"></td>
-            <td id="proformaPayroll-6"></td>
-            <td id="proformaPayroll-7"></td>
-            <td id="proformaPayroll-8"></td>
-            <td id="proformaPayroll-9"></td>
-            <td id="proformaPayroll-10"></td>
-            <td id="proformaPayroll-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Repairs & Maintenance</td>
-            <td id="proformaRepairs-1">Info</td>
-            <td id="proformaRepairs-2"></td>
-            <td id="proformaRepairs-3"></td>
-            <td id="proformaRepairs-4"></td>
-            <td id="proformaRepairs-5"></td>
-            <td id="proformaRepairs-6"></td>
-            <td id="proformaRepairs-7"></td>
-            <td id="proformaRepairs-8"></td>
-            <td id="proformaRepairs-9"></td>
-            <td id="proformaRepairs-10"></td>
-            <td id="proformaRepairs-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Contract Services</td>
-            <td id="proformaContract-1">Info</td>
-            <td id="proformaContract-2"></td>
-            <td id="proformaContract-3"></td>
-            <td id="proformaContract-4"></td>
-            <td id="proformaContract-5"></td>
-            <td id="proformaContract-6"></td>
-            <td id="proformaContract-7"></td>
-            <td id="proformaContract-8"></td>
-            <td id="proformaContract-9"></td>
-            <td id="proformaContract-10"></td>
-            <td id="proformaContract-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Turnover</td>
-            <td id="proformaTurnover-1">Info</td>
-            <td id="proformaTurnover-2"></td>
-            <td id="proformaTurnover-3"></td>
-            <td id="proformaTurnover-4"></td>
-            <td id="proformaTurnover-5"></td>
-            <td id="proformaTurnover-6"></td>
-            <td id="proformaTurnover-7"></td>
-            <td id="proformaTurnover-8"></td>
-            <td id="proformaTurnover-9"></td>
-            <td id="proformaTurnover-10"></td>
-            <td id="proformaTurnover-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Sales & Marketing</td>
-            <td id="proformaSales-1">Info</td>
-            <td id="proformaSales-2"></td>
-            <td id="proformaSales-3"></td>
-            <td id="proformaSales-4"></td>
-            <td id="proformaSales-5"></td>
-            <td id="proformaSales-6"></td>
-            <td id="proformaSales-7"></td>
-            <td id="proformaSales-8"></td>
-            <td id="proformaSales-9"></td>
-            <td id="proformaSales-10"></td>
-            <td id="proformaSales-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Administrative</td>
-            <td id="proformaAdmin-1">Info</td>
-            <td id="proformaAdmin-2"></td>
-            <td id="proformaAdmin-3"></td>
-            <td id="proformaAdmin-4"></td>
-            <td id="proformaAdmin-5"></td>
-            <td id="proformaAdmin-6"></td>
-            <td id="proformaAdmin-7"></td>
-            <td id="proformaAdmin-8"></td>
-            <td id="proformaAdmin-9"></td>
-            <td id="proformaAdmin-10"></td>
-            <td id="proformaAdmin-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Management</td>
-            <td id="proformaManagement-1">Info</td>
-            <td id="proformaManagement-2"></td>
-            <td id="proformaManagement-3"></td>
-            <td id="proformaManagement-4"></td>
-            <td id="proformaManagement-5"></td>
-            <td id="proformaManagement-6"></td>
-            <td id="proformaManagement-7"></td>
-            <td id="proformaManagement-8"></td>
-            <td id="proformaManagement-9"></td>
-            <td id="proformaManagement-10"></td>
-            <td id="proformaManagement-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Replacement Reserves</td>
-            <td id="proformaReserves-1">Info</td>
-            <td id="proformaReserves-2"></td>
-            <td id="proformaReserves-3"></td>
-            <td id="proformaReserves-4"></td>
-            <td id="proformaReserves-5"></td>
-            <td id="proformaReserves-6"></td>
-            <td id="proformaReserves-7"></td>
-            <td id="proformaReserves-8"></td>
-            <td id="proformaReserves-9"></td>
-            <td id="proformaReserves-10"></td>
-            <td id="proformaReserves-11"></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Total Operating Expenses</td>
-            <td id="proformaTotalExpenses-1">Info</td>
-            <td id="proformaTotalExpenses-2"></td>
-            <td id="proformaTotalExpenses-3"></td>
-            <td id="proformaTotalExpenses-4"></td>
-            <td id="proformaTotalExpenses-5"></td>
-            <td id="proformaTotalExpenses-6"></td>
-            <td id="proformaTotalExpenses-7"></td>
-            <td id="proformaTotalExpenses-8"></td>
-            <td id="proformaTotalExpenses-9"></td>
-            <td id="proformaTotalExpenses-10"></td>
-            <td id="proformaTotalExpenses-11"></td>
-          </tr>
-          <tr>
-            <!-- Blank row here -->
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Net Operating Income</td>
-            <td id="proformaNOI-1">Info</td>
-            <td id="proformaNOI-2"></td>
-            <td id="proformaNOI-3"></td>
-            <td id="proformaNOI-4"></td>
-            <td id="proformaNOI-5"></td>
-            <td id="proformaNOI-6"></td>
-            <td id="proformaNOI-7"></td>
-            <td id="proformaNOI-8"></td>
-            <td id="proformaNOI-9"></td>
-            <td id="proformaNOI-10"></td>
-            <td id="proformaNOI-11"></td>
-          </tr>
-          <tr>
-            <!-- Blank row here -->
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Capital Expenditures</td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Capital Expenditures</td>
-            <td id="proformaCapEx-1">Info</td>
-            <td id="proformaCapEx-2"></td>
-            <td id="proformaCapEx-3"></td>
-            <td id="proformaCapEx-4"></td>
-            <td id="proformaCapEx-5"></td>
-            <td id="proformaCapEx-6"></td>
-            <td id="proformaCapEx-7"></td>
-            <td id="proformaCapEx-8"></td>
-            <td id="proformaCapEx-9"></td>
-            <td id="proformaCapEx-10"></td>
-            <td id="proformaCapEx-11"></td>
-          </tr>
-          <tr>
-            <!-- Blank row here -->
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Net Cash Flow</td>
-            <td id="proformaNCF-1">Info</td>
-            <td id="proformaNCF-2"></td>
-            <td id="proformaNCF-3"></td>
-            <td id="proformaNCF-4"></td>
-            <td id="proformaNCF-5"></td>
-            <td id="proformaNCF-6"></td>
-            <td id="proformaNCF-7"></td>
-            <td id="proformaNCF-8"></td>
-            <td id="proformaNCF-9"></td>
-            <td id="proformaNCF-10"></td>
-            <td id="proformaNCF-11"></td>
-          </tr>
-        </table>
+      <div class="col col-5 pane">
+        <section>
+          <table>
+            <tr>
+              <th class="tableTitle" colspan="6">SOURCES AND USES</th>
+            </tr>
+            <tr class="colTitle" class="colSummary">
+              <td colspan="2"></td>
+              <td>Total</td>
+              <td>$/Unit</td>
+              <td>$/SF</td>
+              <td>% of Total</td>
+            </tr>
+            <tr>
+              <td class="tableSectionTitle" colspan="6"><i><u>Sources</u></i></td>
+            </tr>
+            <tr>
+              <td class="tableInfo">Equity</td>
+              <td></td>
+              <td id="equityTotal"></td>
+              <td id="equityUnit"></td>
+              <td id="equitySF"></td>
+              <td id="equityPer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo">Debt</td>
+              <td></td>
+              <td id="debtTotal"></td>
+              <td id="debtUnit"></td>
+              <td id="debtSF"></td>
+              <td id="debtPer"></td>
+            </tr>
+            <tr class="colSummary">
+              <td class="tableInfo">Total Sources</td>
+              <td></td>
+              <td id="sourcesTotalSum"></td>
+              <td id="sourcesUnitSum"></td>
+              <td id="sourcesSFSum"></td>
+              <td id="sourcesPerSum"></td>
+            </tr>
+            <tr>
+              <td colspan="6" class="filler">-</td>
+            </tr>
+            <tr>
+              <td class="tableSectionTitle" colspan="6"><i><u>Uses</u></i></td>
+            </tr>
+            <tr>
+              <td class="tableInfo">Purchase Price</td>
+              <td></td>
+              <td id="purchaseTotal"></td>
+              <td id="purchaseUnit"></td>
+              <td id="purchaseSF"></td>
+              <td id="purchasePer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo">Closing Costs</td>
+              <td></td>
+              <td id="closingTotal"></td>
+              <td id="closingUnit"></td>
+              <td id="closingSF"></td>
+              <td id="closingPer"></td>
+            </tr>
+            <tr class="colSummary">
+              <td class="tableInfo">Total Uses</td>
+              <td></td>
+              <td id="usesTotalSum"></td>
+              <td id="usesUnitSum"></td>
+              <td id="usesSFSum"></td>
+              <td id="usesPerSum"></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <th class="tableTitle" colspan="6">RENTAL RATE ASSUMPTIONS</th>
+            </tr>
+            <tr class="colTitle">
+              <td>Floorplan</td>
+              <td>Total Units</td>
+              <td>Rent/Unit</td>
+              <td>SF/Unit</td>
+              <td>Total SF</td>
+              <td>Rent/SF</td>
+            </tr>
+            <tr>
+              <td><input id="fp1Type" type="text" name="" value=""></td>
+              <td><input id="fp1TotalUnits" type="number" name="" value=""></td>
+              <td><input id="fp1RentUnit" type="number" name="" value=""></td>
+              <td><input id="fp1SFUnit" type="number" name="" value=""></td>
+              <td id="fp1TotalSF"></td>
+              <td id="fp1RentSF"></td>
+            </tr>
+            <tr>
+              <td><input id="fp2Type" type="text" name="" value=""></td>
+              <td><input id="fp2TotalUnits" type="number" name="" value=""></td>
+              <td><input id="fp2RentUnit" type="number" name="" value=""></td>
+              <td><input id="fp2SFUnit" type="number" name="" value=""></td>
+              <td id="fp2TotalSF"></td>
+              <td id="fp2RentSF"></td>
+            </tr>
+            <tr>
+              <td><input id="fp3Type" type="text" name="" value=""></td>
+              <td><input id="fp3TotalUnits" type="number" name="" value=""></td>
+              <td><input id="fp3RentUnit" type="number" name="" value=""></td>
+              <td><input id="fp3SFUnit" type="number" name="" value=""></td>
+              <td id="fp3TotalSF"></td>
+              <td id="fp3RentSF"></td>
+            </tr>
+            <tr class="colSummary">
+              <td>Totals</td>
+              <td id="rentalTotalUnits"></td>
+              <td id="rentalTotalSF"></td>
+              <td id="rentalAvgSF"></td>
+              <td id="rentalPriceUnit"></td>
+              <td id="rentalPriceSF"></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <th class="tableTitle" colspan="6">RETURNS SUMMARY</th>
+            </tr>
+            <tr class="colTitle">
+              <td colspan="2">Unlevered</td>
+              <td colspan="2">Levered</td>
+            </tr>
+            <tr>
+              <td class="tableInfo">Net Profit</td>
+              <td id="unleveredNetProfit"></td>
+              <td class="tableInfo">Net Profit</td>
+              <td id="leveredNetProfit"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo">Discount Rate</td>
+              <td><input id="unleveredDiscount" type="text" name="unleveredDiscount"></td>
+              <td class="tableInfo">Discount Rate</td>
+              <td><input id="leveredDiscount" type="text" name="leveredDiscount"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo">Present Value</td>
+              <td id="leveredPresValue"></td>
+              <td class="tableInfo">Net Present Value</td>
+              <td id="leveredNPV"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo">Equity Multiple</td>
+              <td id="leveredEquityMult"></td>
+              <td class="tableInfo">IRR</td>
+              <td id="leveredIRR"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo">IRR from CF (%)</td>
+              <td id="leveredIRRCF"></td>
+              <td class="tableInfo">IRR from Sale (%)</td>
+              <td id="leveredIRRSale"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo">Cash-on-Cash</td>
+              <td id="unleveredCOC"></td>
+              <td class="tableInfo">Cash-on-Cash</td>
+              <td id="leveredCOC"></td>
+            </tr>
+          </table>
+        </section>
       </div>
-    </section>
+      <div class="col col-4 pane">
+        <section>
+          <table id="currentFinancials">
+            <tr>
+              <th class="tableTitle" colspan="6">CURRENT FINANCIAL PERFORMANCE</th>
+            </tr>
+            <tr class="colTitle">
+              <td>As of Date:</td>
+              <td><input id="startDate" class="finInput" type="date" name=""></td>
+              <td>Total</td>
+              <td>$/Unit</td>
+              <td>$/SF</td>
+              <td>% of Total</td>
+            </tr>
+            <tr>
+              <td class="tableSectionTitle" colspan="6"><i><u>Revenue</u></i></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Rental Income</td>
+              <td id="rentIncomeTotal"></td>
+              <td id="rentIncomeUnit"></td>
+              <td id="rentIncomeSF"></td>
+              <td id="rentIncomePer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Other Income</td>
+              <td><input id="otherIncomeTotal" type="text" name=""></td>
+              <td id="otherIncomeUnit"></td>
+              <td id="otherIncomeSF"></td>
+              <td id="otherIncomePer"></td>
+            </tr>
+            <tr class="colSummary">
+              <td class="tableInfo" colspan="2">Gross Rental Income</td>
+              <td id="grossIncomeTotal"></td>
+              <td id="grossIncomeUnit"></td>
+              <td id="grossIncomeSF"></td>
+              <td id="grossIncomePer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="1">Less: Vacancy</td>
+              <td><input id="vacancyRate" type="text" name=""></td>
+              <td id="vacancyTotal"></td>
+              <td id="vacancyUnit"></td>
+              <td id="vacancySF"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="1">Less: Concessions</td>
+              <td><input id="concessionRate" type="text" name=""></td>
+              <td id="concessionTotal"></td>
+              <td id="concessionUnit"></td>
+              <td id="concessionSF"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="1">Less: Credit Loss</td>
+              <td><input id="creditLossRate" type="text" name=""></td>
+              <td id="creditLossTotal"></td>
+              <td id="creditLossUnit"></td>
+              <td id="creditLossSF"></td>
+              <td></td>
+            </tr>
+            <tr class="colSummary">
+              <td class="tableInfo" colspan="2">Net Rental Income</td>
+              <td id="netRentTotal"></td>
+              <td id="netRentUnit"></td>
+              <td id="netRentSF"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="6">.</td>
+            </tr>
+            <tr>
+              <td class="tableSectionTitle" colspan="6"><i><u>Operating Expenses</u></i></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Real Estate Taxes</td>
+              <td><input id="taxesTotal" class="finInput" type="text" name="taxes" value=""></td>
+              <td id="taxesUnit"></td>
+              <td id="taxesSF"></td>
+              <td id="taxesPer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Insurance</td>
+              <td><input id="insuranceTotal" class="finInput" type="text" name="insurance" value=""></td>
+              <td id="insuranceUnit"></td>
+              <td id="insuranceSF"></td>
+              <td id="insurancePer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Utilities</td>
+              <td><input id="utilitiesTotal" class="finInput" type="text" name="utilities" value=""></td>
+              <td id="utilitiesUnit"></td>
+              <td id="utilitiesSF"></td>
+              <td id="utilitiesPer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Payroll</td>
+              <td><input id="payrollTotal" class="finInput" type="text" name="payroll" value=""></td>
+              <td id="payrollUnit"></td>
+              <td id="payrollSF"></td>
+              <td id="payrollPer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Repairs & Maintenance</td>
+              <td><input id="repairsTotal" class="finInput" type="text" name="repairs" value=""></td>
+              <td id="repairsUnit"></td>
+              <td id="repairsSF"></td>
+              <td id="repairsPer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Contract Services</td>
+              <td><input id="contractTotal" class="finInput" type="text" name="contract" value=""></td>
+              <td id="contractUnit"></td>
+              <td id="contractSF"></td>
+              <td id="contractPer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Turnover</td>
+              <td><input id="turnoverTotal" class="finInput" type="text" name="turnover" value=""></td>
+              <td id="turnoverUnit"></td>
+              <td id="turnoverSF"></td>
+              <td id="turnoverPer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Sales & Marketing</td>
+              <td><input id="salesTotal" class="finInput" type="text" name="sales" value=""></td>
+              <td id="salesUnit"></td>
+              <td id="salesSF"></td>
+              <td id="salesPer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Administrative</td>
+              <td><input id="adminTotal" class="finInput" type="text" name="admin" value=""></td>
+              <td id="adminUnit"></td>
+              <td id="adminSF"></td>
+              <td id="adminPer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo">Management</td>
+              <td><input id="managementPercent" class="perInput" type="text" name="management" value=""></td>
+              <td id="managementTotal"></td>
+              <td id="managementUnit"></td>
+              <td id="managementSF"></td>
+              <td id="managementPer"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo">Replacement Reserves</td>
+              <td><input id="reservesPercent" class="perInput" type="text" name="reserves" value=""></td>
+              <td id="reservesTotal"></td>
+              <td id="reservesUnit"></td>
+              <td id="reservesSF"></td>
+              <td id="reserves%"></td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <th class="tableTitle" colspan="6">MARKET RENTAL ASSUMPTIONS</th>
+            </tr>
+            <tr class="colTitle" id="marketRentAssumptions">
+              <td></td>
+              <td>Revenue</td>
+              <td>Expenses</td>
+              <td>Vacancy</td>
+              <td>Concessions</td>
+              <td>Credit Loss</td>
+            </tr>
+            <tr>
+              <td>Year 1</td>
+              <td><input id="year1Revenue" type="text" name=""></td>
+              <td><input id="year1Expense" type="text" name=""></td>
+              <td><input id="year1Vacancy" type="text" name=""></td>
+              <td><input id="year1Concessions" type="text" name=""></td>
+              <td><input id="year1CreditLoss" type="text" name=""></td>
+            </tr>
+            <tr>
+              <td>Year 2</td>
+              <td><input id="year2Revenue" type="text" name=""></td>
+              <td><input id="year2Expense" type="text" name=""></td>
+              <td><input id="year2Vacancy" type="text" name=""></td>
+              <td><input id="year2Concessions" type="text" name=""></td>
+              <td><input id="year2CreditLoss" type="text" name=""></td>
+            </tr>
+            <tr>
+              <td>Year 3</td>
+              <td><input id="year3Revenue" type="text" name=""></td>
+              <td><input id="year3Expense" type="text" name=""></td>
+              <td><input id="year3Vacancy" type="text" name=""></td>
+              <td><input id="year3Concessions" type="text" name=""></td>
+              <td><input id="year3CreditLoss" type="text" name=""></td>
+            </tr>
+            <tr>
+              <td>Year 4</td>
+              <td><input id="year4Revenue" type="text" name=""></td>
+              <td><input id="year4Expense" type="text" name=""></td>
+              <td><input id="year4Vacancy" type="text" name=""></td>
+              <td><input id="year4Concessions" type="text" name=""></td>
+              <td><input id="year4CreditLoss" type="text" name=""></td>
+            </tr>
+            <tr>
+              <td>Year 5</td>
+              <td><input id="year5Revenue" type="text" name=""></td>
+              <td><input id="year5Expense" type="text" name=""></td>
+              <td><input id="year5Vacancy" type="text" name=""></td>
+              <td><input id="year5Concessions" type="text" name=""></td>
+              <td><input id="year5CreditLoss" type="text" name=""></td>
+            </tr>
+            <tr>
+              <td>Year 6</td>
+              <td><input id="year6Revenue" type="text" name=""></td>
+              <td><input id="year6Expense" type="text" name=""></td>
+              <td><input id="year6Vacancy" type="text" name=""></td>
+              <td><input id="year6Concessions" type="text" name=""></td>
+              <td><input id="year6CreditLoss" type="text" name=""></td>
+            </tr>
+            <tr>
+              <td>Year 7</td>
+              <td><input id="year7Revenue" type="text" name=""></td>
+              <td><input id="year7Expense" type="text" name=""></td>
+              <td><input id="year7Vacancy" type="text" name=""></td>
+              <td><input id="year7Concessions" type="text" name=""></td>
+              <td><input id="year7CreditLoss" type="text" name=""></td>
+            </tr>
+            <tr>
+              <td>Year 8</td>
+              <td><input id="year8Revenue" type="text" name=""></td>
+              <td><input id="year8Expense" type="text" name=""></td>
+              <td><input id="year8Vacancy" type="text" name=""></td>
+              <td><input id="year8Concessions" type="text" name=""></td>
+              <td><input id="year8CreditLoss" type="text" name=""></td>
+            </tr>
+            <tr>
+              <td>Year 9</td>
+              <td><input id="year9Revenue" type="text" name=""></td>
+              <td><input id="year9Expense" type="text" name=""></td>
+              <td><input id="year9Vacancy" type="text" name=""></td>
+              <td><input id="year9Concessions" type="text" name=""></td>
+              <td><input id="year9CreditLoss" type="text" name=""></td>
+            </tr>
+            <tr>
+              <td>Year 10</td>
+              <td><input id="year10Revenue" type="text" name=""></td>
+              <td><input id="year10Expense" type="text" name=""></td>
+              <td><input id="year10Vacancy" type="text" name=""></td>
+              <td><input id="year10Concessions" type="text" name=""></td>
+              <td><input id="year10CreditLoss" type="text" name=""></td>
+            </tr>
+          </table>
+        </section>
+      </div>
+    </div>
   </div>
 
-  <!-- <hr> -->
-  <section>
-    <!-- <p class="accordion">Returns</p> -->
-    <div class="col-sm-12 mainSection">
-      <div class="col-sm-6 irrSectionLeft">
-        <table class="col-sm-7">
-          <tr>
-            <th colspan="11">Unlevered IRR</th>
-          </tr>
-          <tr>
-            <td class="tableInfo">Unlevered IRR</td>
-            <td>Info</td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Unlevered Equity Multiple</td>
-            <td>Info</td>
-          </tr>
-        </table>
-        <table class="col-sm-7">
-          <tr>
-            <th>IRR Partition</th>
-            <th class="centerColumn">%</th>
-            <th class="centerColumn">$</th>
-          </tr>
-          <tr>
-            <td class="tableInfo">IRR From Cash Flow</td>
-            <td>%</td>
-            <td>$</td>
-          </tr>
-          <tr>
-            <td class="tableInfo">IRR From Reversion/Sale</td>
-            <td>%</td>
-            <td>$</td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Total</td>
-            <td>%</td>
-            <td>$</td>
-          </tr>
-        </table>
-      </div>
-      <div class="col-sm-6 irrSectionRight">
-        <table class="col-sm-7">
-          <tr>
-            <th colspan="11">Levered IRR</th>
-          </tr>
-          <tr>
-            <td class="tableInfo">Unlevered IRR</td>
-            <td>Info</td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Levered Equity Multiple</td>
-            <td>Info</td>
-          </tr>
-        </table>
-        <table class="col-sm-7">
-          <tr>
-            <th>Unlevered IRR Partition</th>
-            <th class="centerColumn">%</th>
-            <th class="centerColumn">$</th>
-          </tr>
-          <tr>
-            <td class="tableInfo">IRR From Cash Flow</td>
-            <td>%</td>
-            <td>$</td>
-          </tr>
-          <tr>
-            <td class="tableInfo">IRR From Reversion/Sale</td>
-            <td>%</td>
-            <td>$</td>
-          </tr>
-          <tr>
-            <td class="tableInfo">Total</td>
-            <td>%</td>
-            <td>$</td>
-          </tr>
-        </table>
-      </div>
-      <div>
-        <table>
-          <tr>
-            <th colspan="11">Unlevered Analysis</th>
-          </tr>
-          <tr>
-            <td colspan="2"></td>
-            <td>Year 1</td>
-            <td>Year 2</td>
-            <td>Year 3</td>
-            <td>Year 4</td>
-            <td>Year 5</td>
-            <td>Year 6</td>
-            <td>Year 7</td>
-            <td>Year 8</td>
-            <td>Year 9</td>
-            <td>Year 10</td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Net Operating Income</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Less: Capital Expenditures</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Net Cash Flow from Operations</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <!-- Blank row -->
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Gross Sale Proceeds</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Sales Costs</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Net Sales Proceeds</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <td class="tableInfo" colspan="2">Net Cash Flow from Operations</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="tableInfo" colspan="2">Net Sales Proceeds</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <td class="tableInfo" colspan="2">Total Cash Flows</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </table>
-  </section>
+  <hr>
 
-  <!-- </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col col-sm-12">
+        <section>
+          <table id="proforma" <tr>
+            <th colspan="11">Proforma</th>
+            </tr>
+            <tr id="proformaYear">
+              <th></th>
+              <!-- <th class="proformaYearRow" id="proformaYear-1">Year</th>
+              <th class="proformaYearRow" id="proformaYear-2"></th>
+              <th class="proformaYearRow" id="proformaYear-3"></th>
+              <th class="proformaYearRow" id="proformaYear-4"></th>
+              <th class="proformaYearRow" id="proformaYear-5"></th>
+              <th class="proformaYearRow" id="proformaYear-6"></th>
+              <th class="proformaYearRow" id="proformaYear-7"></th>
+              <th class="proformaYearRow" id="proformaYear-8"></th>
+              <th class="proformaYearRow" id="proformaYear-9"></th>
+              <th class="proformaYearRow" id="proformaYear-10"></th>
+              <th class="proformaYearRow" id="proformaYear-11"></th> -->
+            </tr>
+            <tr>
+              <th>Year End:</th>
+              <th class="proformaDateRow" id="proformaDate-1">Date</th>
+              <th class="proformaDateRow" id="proformaDate-2"></th>
+              <th class="proformaDateRow" id="proformaDate-3"></th>
+              <th class="proformaDateRow" id="proformaDate-4"></th>
+              <th class="proformaDateRow" id="proformaDate-5"></th>
+              <th class="proformaDateRow" id="proformaDate-6"></th>
+              <th class="proformaDateRow" id="proformaDate-7"></th>
+              <th class="proformaDateRow" id="proformaDate-8"></th>
+              <th class="proformaDateRow" id="proformaDate-9"></th>
+              <th class="proformaDateRow" id="proformaDate-10"></th>
+              <th class="proformaDateRow" id="proformaDate-11"></th>
+            </tr>
+            <tr>
+              <td class="tableSectionTitle" colspan="11"><u><i>Revenue</i></u></td>
+            </tr>
+            <tr>
+              <td id="proformaRentalIncome" class="tableInfo" colspan="2">Rental Income</td>
+              <td id="proformaRentalIncome-1">Info</td>
+              <td id="proformaRentalIncome-2"></td>
+              <td id="proformaRentalIncome-3"></td>
+              <td id="proformaRentalIncome-4"></td>
+              <td id="proformaRentalIncome-5"></td>
+              <td id="proformaRentalIncome-6"></td>
+              <td id="proformaRentalIncome-7"></td>
+              <td id="proformaRentalIncome-8"></td>
+              <td id="proformaRentalIncome-9"></td>
+              <td id="proformaRentalIncome-10"></td>
+              <td id="proformaRentalIncome-11"></td>
+            </tr>
+            <tr>
+              <td id="proformaOtherIncome" class="tableInfo" colspan="2">Other Income</td>
+              <td id="proformaOtherIncome-1">Info</td>
+              <td id="proformaOtherIncome-2"></td>
+              <td id="proformaOtherIncome-3"></td>
+              <td id="proformaOtherIncome-4"></td>
+              <td id="proformaOtherIncome-5"></td>
+              <td id="proformaOtherIncome-6"></td>
+              <td id="proformaOtherIncome-7"></td>
+              <td id="proformaOtherIncome-8"></td>
+              <td id="proformaOtherIncome-9"></td>
+              <td id="proformaOtherIncome-10"></td>
+              <td id="proformaOtherIncome-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Gross Rental Income</td>
+              <td id="proformaGrossIncome-1">Info</td>
+              <td id="proformaGrossIncome-2"></td>
+              <td id="proformaGrossIncome-3"></td>
+              <td id="proformaGrossIncome-4"></td>
+              <td id="proformaGrossIncome-5"></td>
+              <td id="proformaGrossIncome-6"></td>
+              <td id="proformaGrossIncome-7"></td>
+              <td id="proformaGrossIncome-8"></td>
+              <td id="proformaGrossIncome-9"></td>
+              <td id="proformaGrossIncome-10"></td>
+              <td id="proformaGrossIncome-11"></td>
+            </tr>
+            <tr>
+              <!-- Need a blank row here -->
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Less: Vacancy</td>
+              <td id="proformaVacancy-1">Info</td>
+              <td id="proformaVacancy-2"></td>
+              <td id="proformaVacancy-3"></td>
+              <td id="proformaVacancy-4"></td>
+              <td id="proformaVacancy-5"></td>
+              <td id="proformaVacancy-6"></td>
+              <td id="proformaVacancy-7"></td>
+              <td id="proformaVacancy-8"></td>
+              <td id="proformaVacancy-9"></td>
+              <td id="proformaVacancy-10"></td>
+              <td id="proformaVacancy-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Less: Concessions</td>
+              <td id="proformaConcessions-1">Info</td>
+              <td id="proformaConcessions-2"></td>
+              <td id="proformaConcessions-3"></td>
+              <td id="proformaConcessions-4"></td>
+              <td id="proformaConcessions-5"></td>
+              <td id="proformaConcessions-6"></td>
+              <td id="proformaConcessions-7"></td>
+              <td id="proformaConcessions-8"></td>
+              <td id="proformaConcessions-9"></td>
+              <td id="proformaConcessions-10"></td>
+              <td id="proformaConcessions-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Less: Credit Loss</td>
+              <td id="proformaCreditLoss-1">Info</td>
+              <td id="proformaCreditLoss-2"></td>
+              <td id="proformaCreditLoss-3"></td>
+              <td id="proformaCreditLoss-4"></td>
+              <td id="proformaCreditLoss-5"></td>
+              <td id="proformaCreditLoss-6"></td>
+              <td id="proformaCreditLoss-7"></td>
+              <td id="proformaCreditLoss-8"></td>
+              <td id="proformaCreditLoss-9"></td>
+              <td id="proformaCreditLoss-10"></td>
+              <td id="proformaCreditLoss-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Net Rental Income</td>
+              <td id="proformaNetIncome-1">Info</td>
+              <td id="proformaNetIncome-2"></td>
+              <td id="proformaNetIncome-3"></td>
+              <td id="proformaNetIncome-4"></td>
+              <td id="proformaNetIncome-5"></td>
+              <td id="proformaNetIncome-6"></td>
+              <td id="proformaNetIncome-7"></td>
+              <td id="proformaNetIncome-8"></td>
+              <td id="proformaNetIncome-9"></td>
+              <td id="proformaNetIncome-10"></td>
+              <td id="proformaNetIncome-11"></td>
+            </tr>
+            <tr>
+              <!-- Blank row here -->
+            </tr>
+            <tr>
+              <td class="tableSectionTitle">Operating Expenses</td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Real Estate Taxes</td>
+              <td id="proformaTaxes-1">Info</td>
+              <td id="proformaTaxes-2"></td>
+              <td id="proformaTaxes-3"></td>
+              <td id="proformaTaxes-4"></td>
+              <td id="proformaTaxes-5"></td>
+              <td id="proformaTaxes-6"></td>
+              <td id="proformaTaxes-7"></td>
+              <td id="proformaTaxes-8"></td>
+              <td id="proformaTaxes-9"></td>
+              <td id="proformaTaxes-10"></td>
+              <td id="proformaTaxes-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Insurance</td>
+              <td id="proformaInsurance-1">Info</td>
+              <td id="proformaInsurance-2"></td>
+              <td id="proformaInsurance-3"></td>
+              <td id="proformaInsurance-4"></td>
+              <td id="proformaInsurance-5"></td>
+              <td id="proformaInsurance-6"></td>
+              <td id="proformaInsurance-7"></td>
+              <td id="proformaInsurance-8"></td>
+              <td id="proformaInsurance-9"></td>
+              <td id="proformaInsurance-10"></td>
+              <td id="proformaInsurance-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Utilities</td>
+              <td id="proformaUtilities-1">Info</td>
+              <td id="proformaUtilities-2"></td>
+              <td id="proformaUtilities-3"></td>
+              <td id="proformaUtilities-4"></td>
+              <td id="proformaUtilities-5"></td>
+              <td id="proformaUtilities-6"></td>
+              <td id="proformaUtilities-7"></td>
+              <td id="proformaUtilities-8"></td>
+              <td id="proformaUtilities-9"></td>
+              <td id="proformaUtilities-10"></td>
+              <td id="proformaUtilities-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Payroll</td>
+              <td id="proformaPayroll-1">Info</td>
+              <td id="proformaPayroll-2"></td>
+              <td id="proformaPayroll-3"></td>
+              <td id="proformaPayroll-4"></td>
+              <td id="proformaPayroll-5"></td>
+              <td id="proformaPayroll-6"></td>
+              <td id="proformaPayroll-7"></td>
+              <td id="proformaPayroll-8"></td>
+              <td id="proformaPayroll-9"></td>
+              <td id="proformaPayroll-10"></td>
+              <td id="proformaPayroll-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Repairs & Maintenance</td>
+              <td id="proformaRepairs-1">Info</td>
+              <td id="proformaRepairs-2"></td>
+              <td id="proformaRepairs-3"></td>
+              <td id="proformaRepairs-4"></td>
+              <td id="proformaRepairs-5"></td>
+              <td id="proformaRepairs-6"></td>
+              <td id="proformaRepairs-7"></td>
+              <td id="proformaRepairs-8"></td>
+              <td id="proformaRepairs-9"></td>
+              <td id="proformaRepairs-10"></td>
+              <td id="proformaRepairs-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Contract Services</td>
+              <td id="proformaContract-1">Info</td>
+              <td id="proformaContract-2"></td>
+              <td id="proformaContract-3"></td>
+              <td id="proformaContract-4"></td>
+              <td id="proformaContract-5"></td>
+              <td id="proformaContract-6"></td>
+              <td id="proformaContract-7"></td>
+              <td id="proformaContract-8"></td>
+              <td id="proformaContract-9"></td>
+              <td id="proformaContract-10"></td>
+              <td id="proformaContract-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Turnover</td>
+              <td id="proformaTurnover-1">Info</td>
+              <td id="proformaTurnover-2"></td>
+              <td id="proformaTurnover-3"></td>
+              <td id="proformaTurnover-4"></td>
+              <td id="proformaTurnover-5"></td>
+              <td id="proformaTurnover-6"></td>
+              <td id="proformaTurnover-7"></td>
+              <td id="proformaTurnover-8"></td>
+              <td id="proformaTurnover-9"></td>
+              <td id="proformaTurnover-10"></td>
+              <td id="proformaTurnover-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Sales & Marketing</td>
+              <td id="proformaSales-1">Info</td>
+              <td id="proformaSales-2"></td>
+              <td id="proformaSales-3"></td>
+              <td id="proformaSales-4"></td>
+              <td id="proformaSales-5"></td>
+              <td id="proformaSales-6"></td>
+              <td id="proformaSales-7"></td>
+              <td id="proformaSales-8"></td>
+              <td id="proformaSales-9"></td>
+              <td id="proformaSales-10"></td>
+              <td id="proformaSales-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Administrative</td>
+              <td id="proformaAdmin-1">Info</td>
+              <td id="proformaAdmin-2"></td>
+              <td id="proformaAdmin-3"></td>
+              <td id="proformaAdmin-4"></td>
+              <td id="proformaAdmin-5"></td>
+              <td id="proformaAdmin-6"></td>
+              <td id="proformaAdmin-7"></td>
+              <td id="proformaAdmin-8"></td>
+              <td id="proformaAdmin-9"></td>
+              <td id="proformaAdmin-10"></td>
+              <td id="proformaAdmin-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Management</td>
+              <td id="proformaManagement-1">Info</td>
+              <td id="proformaManagement-2"></td>
+              <td id="proformaManagement-3"></td>
+              <td id="proformaManagement-4"></td>
+              <td id="proformaManagement-5"></td>
+              <td id="proformaManagement-6"></td>
+              <td id="proformaManagement-7"></td>
+              <td id="proformaManagement-8"></td>
+              <td id="proformaManagement-9"></td>
+              <td id="proformaManagement-10"></td>
+              <td id="proformaManagement-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Replacement Reserves</td>
+              <td id="proformaReserves-1">Info</td>
+              <td id="proformaReserves-2"></td>
+              <td id="proformaReserves-3"></td>
+              <td id="proformaReserves-4"></td>
+              <td id="proformaReserves-5"></td>
+              <td id="proformaReserves-6"></td>
+              <td id="proformaReserves-7"></td>
+              <td id="proformaReserves-8"></td>
+              <td id="proformaReserves-9"></td>
+              <td id="proformaReserves-10"></td>
+              <td id="proformaReserves-11"></td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Total Operating Expenses</td>
+              <td id="proformaTotalExpenses-1">Info</td>
+              <td id="proformaTotalExpenses-2"></td>
+              <td id="proformaTotalExpenses-3"></td>
+              <td id="proformaTotalExpenses-4"></td>
+              <td id="proformaTotalExpenses-5"></td>
+              <td id="proformaTotalExpenses-6"></td>
+              <td id="proformaTotalExpenses-7"></td>
+              <td id="proformaTotalExpenses-8"></td>
+              <td id="proformaTotalExpenses-9"></td>
+              <td id="proformaTotalExpenses-10"></td>
+              <td id="proformaTotalExpenses-11"></td>
+            </tr>
+            <tr>
+              <!-- Blank row here -->
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Net Operating Income</td>
+              <td id="proformaNOI-1">Info</td>
+              <td id="proformaNOI-2"></td>
+              <td id="proformaNOI-3"></td>
+              <td id="proformaNOI-4"></td>
+              <td id="proformaNOI-5"></td>
+              <td id="proformaNOI-6"></td>
+              <td id="proformaNOI-7"></td>
+              <td id="proformaNOI-8"></td>
+              <td id="proformaNOI-9"></td>
+              <td id="proformaNOI-10"></td>
+              <td id="proformaNOI-11"></td>
+            </tr>
+            <tr>
+              <!-- Blank row here -->
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Capital Expenditures</td>
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Capital Expenditures</td>
+              <td id="proformaCapEx-1">Info</td>
+              <td id="proformaCapEx-2"></td>
+              <td id="proformaCapEx-3"></td>
+              <td id="proformaCapEx-4"></td>
+              <td id="proformaCapEx-5"></td>
+              <td id="proformaCapEx-6"></td>
+              <td id="proformaCapEx-7"></td>
+              <td id="proformaCapEx-8"></td>
+              <td id="proformaCapEx-9"></td>
+              <td id="proformaCapEx-10"></td>
+              <td id="proformaCapEx-11"></td>
+            </tr>
+            <tr>
+              <!-- Blank row here -->
+            </tr>
+            <tr>
+              <td class="tableInfo" colspan="2">Net Cash Flow</td>
+              <td id="proformaNCF-1">Info</td>
+              <td id="proformaNCF-2"></td>
+              <td id="proformaNCF-3"></td>
+              <td id="proformaNCF-4"></td>
+              <td id="proformaNCF-5"></td>
+              <td id="proformaNCF-6"></td>
+              <td id="proformaNCF-7"></td>
+              <td id="proformaNCF-8"></td>
+              <td id="proformaNCF-9"></td>
+              <td id="proformaNCF-10"></td>
+              <td id="proformaNCF-11"></td>
+            </tr>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <section>
+          <div class="col-sm-6 irrSectionLeft">
+            <table class="col-sm-7">
+
+              <tr>
+                <th colspan="11">Unlevered IRR</th>
+              </tr>
+              <tr>
+                <td class="tableInfo">Unlevered IRR</td>
+                <td>Info</td>
+              </tr>
+              <tr>
+                <td class="tableInfo">Unlevered Equity Multiple</td>
+                <td>Info</td>
+              </tr>
+            </table>
+            <table class="col-sm-7">
+              <tr>
+                <th>IRR Partition</th>
+                <th class="centerColumn">%</th>
+                <th class="centerColumn">$</th>
+              </tr>
+              <tr>
+                <td class="tableInfo">IRR From Cash Flow</td>
+                <td>%</td>
+                <td>$</td>
+              </tr>
+              <tr>
+                <td class="tableInfo">IRR From Reversion/Sale</td>
+                <td>%</td>
+                <td>$</td>
+              </tr>
+              <tr>
+                <td class="tableInfo">Total</td>
+                <td>%</td>
+                <td>$</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-sm-6 irrSectionRight">
+            <table class="col-sm-7">
+              <tr>
+                <th colspan="11">Levered IRR</th>
+              </tr>
+              <tr>
+                <td class="tableInfo">Unlevered IRR</td>
+                <td>Info</td>
+              </tr>
+              <tr>
+                <td class="tableInfo">Levered Equity Multiple</td>
+                <td>Info</td>
+              </tr>
+            </table>
+            <table class="col-sm-7">
+              <tr>
+                <th>Unlevered IRR Partition</th>
+                <th class="centerColumn">%</th>
+                <th class="centerColumn">$</th>
+              </tr>
+              <tr>
+                <td class="tableInfo">IRR From Cash Flow</td>
+                <td>%</td>
+                <td>$</td>
+              </tr>
+              <tr>
+                <td class="tableInfo">IRR From Reversion/Sale</td>
+                <td>%</td>
+                <td>$</td>
+              </tr>
+              <tr>
+                <td class="tableInfo">Total</td>
+                <td>%</td>
+                <td>$</td>
+              </tr>
+            </table>
+          </div>
+          <div>
+            <table>
+              <tr>
+                <th colspan="11">Unlevered Analysis</th>
+              </tr>
+              <tr>
+                <td colspan="2"></td>
+                <td>Year 1</td>
+                <td>Year 2</td>
+                <td>Year 3</td>
+                <td>Year 4</td>
+                <td>Year 5</td>
+                <td>Year 6</td>
+                <td>Year 7</td>
+                <td>Year 8</td>
+                <td>Year 9</td>
+                <td>Year 10</td>
+              </tr>
+              <tr>
+                <td class="tableInfo" colspan="2">Net Operating Income</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="tableInfo" colspan="2">Less: Capital Expenditures</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="tableInfo" colspan="2">Net Cash Flow from Operations</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <!-- Blank row -->
+              </tr>
+              <tr>
+                <td class="tableInfo" colspan="2">Gross Sale Proceeds</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="tableInfo" colspan="2">Sales Costs</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="tableInfo" colspan="2">Net Sales Proceeds</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td class="tableInfo" colspan="2">Net Cash Flow from Operations</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="tableInfo" colspan="2">Net Sales Proceeds</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td class="tableInfo" colspan="2">Total Cash Flows</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+        </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- </div>
   </div>
   </section> -->
 
-  <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="js/tether.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/propertyData.js"></script>
-  <script src="js/script.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="js/tether.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/propertyData.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

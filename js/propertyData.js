@@ -1,3 +1,5 @@
+console.log(JSON.stringify(properties));
+
 var properties = [{
     // property1: {
     propInfo: {

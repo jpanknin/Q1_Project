@@ -5,6 +5,8 @@ body {
   background-color: black;
   background-size: cover;
   margin: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 nav {
@@ -20,6 +22,8 @@ nav ul {
   margin: 0;
 }
 
+
+
 aside {
   float: left;
   height: 100vh;
@@ -27,11 +31,17 @@ aside {
   padding-left: 10px;
   padding-right: 10px;
   border-right: 2px solid white;
+  position: fixed;
 }
 
 aside form {
   font-size: 12px;
 }
+
+/*.mainSection {
+  margin-left: 115px;
+  position: relative;
+}*/
 
 #propertySelector {
   width: 100px;
@@ -171,7 +181,6 @@ input {
   float: left;
   padding-left: 5px;
   padding-right: 5px;
-  /*width: 30%;*/
 }
 
 /*#middlePane {
@@ -202,6 +211,22 @@ input {
 .colTitle {
   color: red;
   background: grey;
+}
+
+section > p.accordion {
+  background-color: gray;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 90%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0s;
+  line-height: 30px;
+  margin-top: 20px;
+  margin-left: 100px;
+  font-size: 24px;
 }
 
 .irrSectionLeft {

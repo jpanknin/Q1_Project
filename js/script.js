@@ -1,7 +1,15 @@
 // Fill in the input box for the properties available for selection
 //https://stackoverflow.com/questions/78932/how-do-i-programmatically-set-the-value-of-a-select-box-element-using-javascript
 
+var props = JSON.stringify(properties);
+console.log(props);
+
+$.getJSON("props.json", function(data) {
+  console.log(data);
+})
+
 window.onload = fillSelectBox(properties);
+
 
 function fillSelectBox(properties) {
   for (var i = 0; i < properties.length; i++) {
@@ -14,6 +22,8 @@ function fillSelectBox(properties) {
     optionBox.appendChild(option);
   }
 }
+
+
 
 // Selecting which property to load from the object page
 // https://stackoverflow.com/questions/26086777/global-variable-and-addeventlistener
@@ -521,4 +531,24 @@ function vacancy(prop, saleYear) {
     el.innerHTML = vacancy;
   }
   return vacancyRate;
+}
+
+// Builds the functionality for the accordion sections
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
 }

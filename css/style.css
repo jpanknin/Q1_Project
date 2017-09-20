@@ -128,6 +128,8 @@ td {
   text-align: left;
   width: 10%;
   padding-left: 10px;
+  /*border-right: 2px solid white;*/
+  /*box-shadow: 10px 0 10px rgba(244, 242, 242, 0.7)*/
 }
 
 .tableTitle {

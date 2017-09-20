@@ -342,28 +342,28 @@
           <td id="rentIncomeTotal"></td>
           <td id="rentIncomeUnit"></td>
           <td id="rentIncomeSF"></td>
-          <td id="rentIncome%"></td>
+          <td id="rentIncomePer"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Other Income</td>
           <td><input id="otherIncomeTotal" type="text" name=""></td>
           <td id="otherIncomeUnit"></td>
           <td id="otherIncomeSF"></td>
-          <td id="otherIncome%"></td>
+          <td id="otherIncomePer"></td>
         </tr>
         <tr class="colSummary">
           <td class="tableInfo" colspan="2">Gross Rental Income</td>
           <td id="grossIncomeTotal"></td>
           <td id="grossIncomeUnit"></td>
           <td id="grossIncomeSF"></td>
-          <td id="grossIncome%"></td>
+          <td id="grossIncomePer"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="1">Less: Vacancy</td>
           <td><input id="vacancyRate" type="text" name=""></td>
           <td id="vacancyTotal"></td>
           <td id="vacancyUnit"></td>
-          <td id="VacancySF"></td>
+          <td id="vacancySF"></td>
           <td></td>
         </tr>
         <tr>
@@ -400,63 +400,63 @@
           <td><input id="taxesTotal" class="finInput" type="text" name="taxes" value=""></td>
           <td id="taxesUnit"></td>
           <td id="taxesSF"></td>
-          <td id="taxes%"></td>
+          <td id="taxesPer"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Insurance</td>
           <td><input id="insuranceTotal" class="finInput" type="text" name="insurance" value=""></td>
           <td id="insuranceUnit"></td>
           <td id="insuranceSF"></td>
-          <td id="insurance%"></td>
+          <td id="insurancePer"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Utilities</td>
           <td><input id="utilitiesTotal" class="finInput" type="text" name="utilities" value=""></td>
           <td id="utilitiesUnit"></td>
           <td id="utilitiesSF"></td>
-          <td id="utilities%"></td>
+          <td id="utilitiesPer"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Payroll</td>
           <td><input id="payrollTotal" class="finInput" type="text" name="payroll" value=""></td>
           <td id="payrollUnit"></td>
           <td id="payrollSF"></td>
-          <td id="payroll%"></td>
+          <td id="payrollPer"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Repairs & Maintenance</td>
           <td><input id="repairsTotal" class="finInput" type="text" name="repairs" value=""></td>
           <td id="repairsUnit"></td>
           <td id="repairsSF"></td>
-          <td id="repairs%"></td>
+          <td id="repairsPer"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Contract Services</td>
           <td><input id="contractTotal" class="finInput" type="text" name="contract" value=""></td>
-          <td id="contractServicesUnit"></td>
-          <td id="contractServicesSF"></td>
-          <td id="contractServices%"></td>
+          <td id="contractUnit"></td>
+          <td id="contractSF"></td>
+          <td id="contractPer"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Turnover</td>
           <td><input id="turnoverTotal" class="finInput" type="text" name="turnover" value=""></td>
           <td id="turnoverUnit"></td>
           <td id="turnoverSF"></td>
-          <td id="turnover%"></td>
+          <td id="turnoverPer"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Sales & Marketing</td>
           <td><input id="salesTotal" class="finInput" type="text" name="sales" value=""></td>
           <td id="salesUnit"></td>
           <td id="salesSF"></td>
-          <td id="sales%"></td>
+          <td id="salesPer"></td>
         </tr>
         <tr>
           <td class="tableInfo" colspan="2">Administrative</td>
           <td><input id="adminTotal" class="finInput"type="text" name="admin" value=""></td>
           <td id="adminUnit"></td>
           <td id="adminSF"></td>
-          <td id="admin%"></td>
+          <td id="adminPer"></td>
         </tr>
         <tr>
           <td class="tableInfo">Management</td>
@@ -464,7 +464,7 @@
           <td id="managementTotal"></td>
           <td id="managementUnit"></td>
           <td id="managementSF"></td>
-          <td id="management%"></td>
+          <td id="managementPer"></td>
         </tr>
         <tr>
           <td class="tableInfo">Replacement Reserves</td>
@@ -575,7 +575,7 @@
 
   <div class="container">
     <section>
-      <table id="proforma">
+      <table id="proforma" class="col-sm-12">
         <tr>
           <th colspan="11">Proforma</th>
         </tr>
@@ -611,7 +611,7 @@
           <td class="tableSectionTitle" colspan="11"><u><i>Revenue</i></u></td>
         </tr>
         <tr>
-          <td id="proformaRentalIncome" class="tableInfo">Rental Income</td>
+          <td id="proformaRentalIncome" class="tableInfo" colspan="2">Rental Income</td>
           <td id="proformaRentalIncome-1">Info</td>
           <td id="proformaRentalIncome-2"></td>
           <td id="proformaRentalIncome-3"></td>
@@ -625,7 +625,7 @@
           <td id="proformaRentalIncome-11"></td>
         </tr>
         <tr>
-          <td id="proformaOtherIncome" class="tableInfo">Other Income</td>
+          <td id="proformaOtherIncome" class="tableInfo" colspan="2">Other Income</td>
           <td id="proformaOtherIncome-1">Info</td>
           <td id="proformaOtherIncome-2"></td>
           <td id="proformaOtherIncome-3"></td>
@@ -639,7 +639,7 @@
           <td id="proformaOtherIncome-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Gross Rental Income</td>
+          <td class="tableInfo" colspan="2">Gross Rental Income</td>
           <td id="proformaGrossIncome-1">Info</td>
           <td id="proformaGrossIncome-2"></td>
           <td id="proformaGrossIncome-3"></td>
@@ -656,7 +656,7 @@
           <!-- Need a blank row here -->
         </tr>
         <tr>
-          <td class="tableInfo">Less: Vacancy</td>
+          <td class="tableInfo" colspan="2">Less: Vacancy</td>
           <td id="proformaVacancy-1">Info</td>
           <td id="proformaVacancy-2"></td>
           <td id="proformaVacancy-3"></td>
@@ -670,7 +670,7 @@
           <td id="proformaVacancy-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Less: Concessions</td>
+          <td class="tableInfo" colspan="2">Less: Concessions</td>
           <td id="proformaConcessions-1">Info</td>
           <td id="proformaConcessions-2"></td>
           <td id="proformaConcessions-3"></td>
@@ -684,7 +684,7 @@
           <td id="proformaConcessions-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Less: Credit Loss</td>
+          <td class="tableInfo" colspan="2">Less: Credit Loss</td>
           <td id="proformaCreditLoss-1">Info</td>
           <td id="proformaCreditLoss-2"></td>
           <td id="proformaCreditLoss-3"></td>
@@ -698,7 +698,7 @@
           <td id="proformaCreditLoss-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Net Rental Income</td>
+          <td class="tableInfo" colspan="2">Net Rental Income</td>
           <td id="proformaNetIncome-1">Info</td>
           <td id="proformaNetIncome-2"></td>
           <td id="proformaNetIncome-3"></td>
@@ -718,7 +718,7 @@
           <td class="tableSectionTitle">Operating Expenses</td>
         </tr>
         <tr>
-          <td class="tableInfo">Real Estate Taxes</td>
+          <td class="tableInfo" colspan="2">Real Estate Taxes</td>
           <td id="proformaTaxes-1">Info</td>
           <td id="proformaTaxes-2"></td>
           <td id="proformaTaxes-3"></td>
@@ -732,7 +732,7 @@
           <td id="proformaTaxes-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Insurance</td>
+          <td class="tableInfo" colspan="2">Insurance</td>
           <td id="proformaInsurance-1">Info</td>
           <td id="proformaInsurance-2"></td>
           <td id="proformaInsurance-3"></td>
@@ -746,7 +746,7 @@
           <td id="proformaInsurance-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Utilities</td>
+          <td class="tableInfo" colspan="2">Utilities</td>
           <td id="proformaUtilities-1">Info</td>
           <td id="proformaUtilities-2"></td>
           <td id="proformaUtilities-3"></td>
@@ -760,7 +760,7 @@
           <td id="proformaUtilities-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Payroll</td>
+          <td class="tableInfo" colspan="2">Payroll</td>
           <td id="proformaPayroll-1">Info</td>
           <td id="proformaPayroll-2"></td>
           <td id="proformaPayroll-3"></td>
@@ -774,7 +774,7 @@
           <td id="proformaPayroll-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Repairs & Maintenance</td>
+          <td class="tableInfo" colspan="2">Repairs & Maintenance</td>
           <td id="proformaRepairs-1">Info</td>
           <td id="proformaRepairs-2"></td>
           <td id="proformaRepairs-3"></td>
@@ -788,7 +788,7 @@
           <td id="proformaRepairs-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Contract Services</td>
+          <td class="tableInfo" colspan="2">Contract Services</td>
           <td id="proformaContract-1">Info</td>
           <td id="proformaContract-2"></td>
           <td id="proformaContract-3"></td>
@@ -802,7 +802,7 @@
           <td id="proformaContract-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Turnover</td>
+          <td class="tableInfo" colspan="2">Turnover</td>
           <td id="proformaTurnover-1">Info</td>
           <td id="proformaTurnover-2"></td>
           <td id="proformaTurnover-3"></td>
@@ -816,7 +816,7 @@
           <td id="proformaTurnover-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Sales & Marketing</td>
+          <td class="tableInfo" colspan="2">Sales & Marketing</td>
           <td id="proformaSales-1">Info</td>
           <td id="proformaSales-2"></td>
           <td id="proformaSales-3"></td>
@@ -830,7 +830,7 @@
           <td id="proformaSales-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Administrative</td>
+          <td class="tableInfo" colspan="2">Administrative</td>
           <td id="proformaAdmin-1">Info</td>
           <td id="proformaAdmin-2"></td>
           <td id="proformaAdmin-3"></td>
@@ -844,7 +844,7 @@
           <td id="proformaAdmin-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Management</td>
+          <td class="tableInfo" colspan="2">Management</td>
           <td id="proformaManagement-1">Info</td>
           <td id="proformaManagement-2"></td>
           <td id="proformaManagement-3"></td>
@@ -858,7 +858,7 @@
           <td id="proformaManagement-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Replacement Reserves</td>
+          <td class="tableInfo" colspan="2">Replacement Reserves</td>
           <td id="proformaReserves-1">Info</td>
           <td id="proformaReserves-2"></td>
           <td id="proformaReserves-3"></td>
@@ -872,7 +872,7 @@
           <td id="proformaReserves-11"></td>
         </tr>
         <tr>
-          <td class="tableInfo">Total Operating Expenses</td>
+          <td class="tableInfo" colspan="2">Total Operating Expenses</td>
           <td id="proformaTotalExpenses-1">Info</td>
           <td id="proformaTotalExpenses-2"></td>
           <td id="proformaTotalExpenses-3"></td>
@@ -889,7 +889,7 @@
           <!-- Blank row here -->
         </tr>
         <tr>
-          <td class="tableInfo">Net Operating Income</td>
+          <td class="tableInfo" colspan="2">Net Operating Income</td>
           <td id="proformaNOI-1">Info</td>
           <td id="proformaNOI-2"></td>
           <td id="proformaNOI-3"></td>
@@ -906,10 +906,10 @@
           <!-- Blank row here -->
         </tr>
         <tr>
-          <td class="tableInfo">Capital Expenditures</td>
+          <td class="tableInfo" colspan="2">Capital Expenditures</td>
         </tr>
         <tr>
-          <td class="tableInfo">Capital Expenditures</td>
+          <td class="tableInfo" colspan="2">Capital Expenditures</td>
           <td id="proformaCapEx-1">Info</td>
           <td id="proformaCapEx-2"></td>
           <td id="proformaCapEx-3"></td>
@@ -926,7 +926,7 @@
           <!-- Blank row here -->
         </tr>
         <tr>
-          <td class="tableInfo">Net Cash Flow</td>
+          <td class="tableInfo" colspan="2">Net Cash Flow</td>
           <td id="proformaNCF-1">Info</td>
           <td id="proformaNCF-2"></td>
           <td id="proformaNCF-3"></td>

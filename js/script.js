@@ -16,7 +16,6 @@ function fillSelectBox(properties) {
     var optionBox = document.querySelector('#propertySelector');
     var option = document.createElement('option');
     var choice = document.createTextNode(properties[i].propInfo.propAddress);
-    console.log("Hello");
     option.value = properties[i].propInfo.propAddress;
     option.appendChild(choice);
     optionBox.appendChild(option);
@@ -30,10 +29,9 @@ function fillSelectBox(properties) {
 
 var property;
 var propSelect = document.querySelector('#propertySelectorButn');
-propSelect.addEventListener('click', propSelector);
+propSelect.addEventListener('click', propSelector());
 
 function propSelector() {
-  // console.log("Hello");
   property = document.querySelector('#propertySelector').value;
   for (var i = 0; i < properties.length; i++) {
     if (properties[i].propInfo.propAddress == property) {

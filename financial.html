@@ -11,6 +11,7 @@
 
 <body>
   <nav>
+    <img id="logo" src="img/logo2.png" alt="">
     <ul id="navBar">
       <li><a href="index.html">Home</a></li>
       <li><a href="financial.html"></a>Financial</li>
@@ -25,7 +26,7 @@
       <input id="propertySelectorButn" type="button" name="" value="Submit">
     </form>
   </aside>
-  <div class="container-fluid">
+  <div id="firstBox" class="container-fluid">
     <div class="row">
       <div class="col col-sm-3 pane">
         <section>
@@ -92,12 +93,12 @@
               <td class="tableInfo">Cap on Total $</td>
               <td id="capOnTotal" colspan=2></td>
             </tr>
-            <tr class="button">
+            <!-- <tr class="button">
               <td colspan="2"></td>
               <td>
                 <button id="butn" type="button" name="button">Submit</button>
               </td>
-            </tr>
+            </tr> -->
           </table>
           <table>
             <tr>
@@ -579,6 +580,7 @@
             </tr>
             <tr id="proformaYear">
               <th></th>
+              <th></th>
               <!-- <th class="proformaYearRow" id="proformaYear-1">Year</th>
               <th class="proformaYearRow" id="proformaYear-2"></th>
               <th class="proformaYearRow" id="proformaYear-3"></th>
@@ -606,7 +608,7 @@
               <th class="proformaDateRow" id="proformaDate-11"></th>
             </tr>
             <tr>
-              <td class="tableSectionTitle" colspan="11"><u><i>Revenue</i></u></td>
+              <td class="tableSectionTitle" colspan="10"><u><i>Revenue</i></u></td>
             </tr>
             <tr>
               <td id="proformaRentalIncome" class="tableInfo" colspan="2">Rental Income</td>
@@ -717,129 +719,129 @@
             </tr>
             <tr>
               <td class="tableInfo" colspan="2">Real Estate Taxes</td>
-              <td id="proformaTaxes-1">Info</td>
-              <td id="proformaTaxes-2"></td>
-              <td id="proformaTaxes-3"></td>
-              <td id="proformaTaxes-4"></td>
-              <td id="proformaTaxes-5"></td>
-              <td id="proformaTaxes-6"></td>
-              <td id="proformaTaxes-7"></td>
-              <td id="proformaTaxes-8"></td>
-              <td id="proformaTaxes-9"></td>
-              <td id="proformaTaxes-10"></td>
-              <td id="proformaTaxes-11"></td>
+              <td id="proformataxes-1">Info</td>
+              <td id="proformataxes-2"></td>
+              <td id="proformataxes-3"></td>
+              <td id="proformataxes-4"></td>
+              <td id="proformataxes-5"></td>
+              <td id="proformataxes-6"></td>
+              <td id="proformataxes-7"></td>
+              <td id="proformataxes-8"></td>
+              <td id="proformataxes-9"></td>
+              <td id="proformataxes-10"></td>
+              <td id="proformataxes-11"></td>
             </tr>
             <tr>
               <td class="tableInfo" colspan="2">Insurance</td>
-              <td id="proformaInsurance-1">Info</td>
-              <td id="proformaInsurance-2"></td>
-              <td id="proformaInsurance-3"></td>
-              <td id="proformaInsurance-4"></td>
-              <td id="proformaInsurance-5"></td>
-              <td id="proformaInsurance-6"></td>
-              <td id="proformaInsurance-7"></td>
-              <td id="proformaInsurance-8"></td>
-              <td id="proformaInsurance-9"></td>
-              <td id="proformaInsurance-10"></td>
-              <td id="proformaInsurance-11"></td>
+              <td id="proformainsurance-1">Info</td>
+              <td id="proformainsurance-2"></td>
+              <td id="proformainsurance-3"></td>
+              <td id="proformainsurance-4"></td>
+              <td id="proformainsurance-5"></td>
+              <td id="proformainsurance-6"></td>
+              <td id="proformainsurance-7"></td>
+              <td id="proformainsurance-8"></td>
+              <td id="proformainsurance-9"></td>
+              <td id="proformainsurance-10"></td>
+              <td id="proformainsurance-11"></td>
             </tr>
             <tr>
               <td class="tableInfo" colspan="2">Utilities</td>
-              <td id="proformaUtilities-1">Info</td>
-              <td id="proformaUtilities-2"></td>
-              <td id="proformaUtilities-3"></td>
-              <td id="proformaUtilities-4"></td>
-              <td id="proformaUtilities-5"></td>
-              <td id="proformaUtilities-6"></td>
-              <td id="proformaUtilities-7"></td>
-              <td id="proformaUtilities-8"></td>
-              <td id="proformaUtilities-9"></td>
-              <td id="proformaUtilities-10"></td>
-              <td id="proformaUtilities-11"></td>
+              <td id="proformautilities-1">Info</td>
+              <td id="proformautilities-2"></td>
+              <td id="proformautilities-3"></td>
+              <td id="proformautilities-4"></td>
+              <td id="proformautilities-5"></td>
+              <td id="proformautilities-6"></td>
+              <td id="proformautilities-7"></td>
+              <td id="proformautilities-8"></td>
+              <td id="proformautilities-9"></td>
+              <td id="proformautilities-10"></td>
+              <td id="proformautilities-11"></td>
             </tr>
             <tr>
               <td class="tableInfo" colspan="2">Payroll</td>
-              <td id="proformaPayroll-1">Info</td>
-              <td id="proformaPayroll-2"></td>
-              <td id="proformaPayroll-3"></td>
-              <td id="proformaPayroll-4"></td>
-              <td id="proformaPayroll-5"></td>
-              <td id="proformaPayroll-6"></td>
-              <td id="proformaPayroll-7"></td>
-              <td id="proformaPayroll-8"></td>
-              <td id="proformaPayroll-9"></td>
-              <td id="proformaPayroll-10"></td>
-              <td id="proformaPayroll-11"></td>
+              <td id="proformapayroll-1">Info</td>
+              <td id="proformapayroll-2"></td>
+              <td id="proformapayroll-3"></td>
+              <td id="proformapayroll-4"></td>
+              <td id="proformapayroll-5"></td>
+              <td id="proformapayroll-6"></td>
+              <td id="proformapayroll-7"></td>
+              <td id="proformapayroll-8"></td>
+              <td id="proformapayroll-9"></td>
+              <td id="proformapayroll-10"></td>
+              <td id="proformapayroll-11"></td>
             </tr>
             <tr>
               <td class="tableInfo" colspan="2">Repairs & Maintenance</td>
-              <td id="proformaRepairs-1">Info</td>
-              <td id="proformaRepairs-2"></td>
-              <td id="proformaRepairs-3"></td>
-              <td id="proformaRepairs-4"></td>
-              <td id="proformaRepairs-5"></td>
-              <td id="proformaRepairs-6"></td>
-              <td id="proformaRepairs-7"></td>
-              <td id="proformaRepairs-8"></td>
-              <td id="proformaRepairs-9"></td>
-              <td id="proformaRepairs-10"></td>
-              <td id="proformaRepairs-11"></td>
+              <td id="proformarepairs-1">Info</td>
+              <td id="proformarepairs-2"></td>
+              <td id="proformarepairs-3"></td>
+              <td id="proformarepairs-4"></td>
+              <td id="proformarepairs-5"></td>
+              <td id="proformarepairs-6"></td>
+              <td id="proformarepairs-7"></td>
+              <td id="proformarepairs-8"></td>
+              <td id="proformarepairs-9"></td>
+              <td id="proformarepairs-10"></td>
+              <td id="proformarepairs-11"></td>
             </tr>
             <tr>
               <td class="tableInfo" colspan="2">Contract Services</td>
-              <td id="proformaContract-1">Info</td>
-              <td id="proformaContract-2"></td>
-              <td id="proformaContract-3"></td>
-              <td id="proformaContract-4"></td>
-              <td id="proformaContract-5"></td>
-              <td id="proformaContract-6"></td>
-              <td id="proformaContract-7"></td>
-              <td id="proformaContract-8"></td>
-              <td id="proformaContract-9"></td>
-              <td id="proformaContract-10"></td>
-              <td id="proformaContract-11"></td>
+              <td id="proformacontract-1">Info</td>
+              <td id="proformacontract-2"></td>
+              <td id="proformacontract-3"></td>
+              <td id="proformacontract-4"></td>
+              <td id="proformacontract-5"></td>
+              <td id="proformacontract-6"></td>
+              <td id="proformacontract-7"></td>
+              <td id="proformacontract-8"></td>
+              <td id="proformacontract-9"></td>
+              <td id="proformacontract-10"></td>
+              <td id="proformacontract-11"></td>
             </tr>
             <tr>
               <td class="tableInfo" colspan="2">Turnover</td>
-              <td id="proformaTurnover-1">Info</td>
-              <td id="proformaTurnover-2"></td>
-              <td id="proformaTurnover-3"></td>
-              <td id="proformaTurnover-4"></td>
-              <td id="proformaTurnover-5"></td>
-              <td id="proformaTurnover-6"></td>
-              <td id="proformaTurnover-7"></td>
-              <td id="proformaTurnover-8"></td>
-              <td id="proformaTurnover-9"></td>
-              <td id="proformaTurnover-10"></td>
-              <td id="proformaTurnover-11"></td>
+              <td id="proformaturnover-1">Info</td>
+              <td id="proformaturnover-2"></td>
+              <td id="proformaturnover-3"></td>
+              <td id="proformaturnover-4"></td>
+              <td id="proformaturnover-5"></td>
+              <td id="proformaturnover-6"></td>
+              <td id="proformaturnover-7"></td>
+              <td id="proformaturnover-8"></td>
+              <td id="proformaturnover-9"></td>
+              <td id="proformaturnover-10"></td>
+              <td id="proformaturnover-11"></td>
             </tr>
             <tr>
               <td class="tableInfo" colspan="2">Sales & Marketing</td>
-              <td id="proformaSales-1">Info</td>
-              <td id="proformaSales-2"></td>
-              <td id="proformaSales-3"></td>
-              <td id="proformaSales-4"></td>
-              <td id="proformaSales-5"></td>
-              <td id="proformaSales-6"></td>
-              <td id="proformaSales-7"></td>
-              <td id="proformaSales-8"></td>
-              <td id="proformaSales-9"></td>
-              <td id="proformaSales-10"></td>
-              <td id="proformaSales-11"></td>
+              <td id="proformasales-1">Info</td>
+              <td id="proformasales-2"></td>
+              <td id="proformasales-3"></td>
+              <td id="proformasales-4"></td>
+              <td id="proformasales-5"></td>
+              <td id="proformasales-6"></td>
+              <td id="proformasales-7"></td>
+              <td id="proformasales-8"></td>
+              <td id="proformasales-9"></td>
+              <td id="proformasales-10"></td>
+              <td id="proformasales-11"></td>
             </tr>
             <tr>
               <td class="tableInfo" colspan="2">Administrative</td>
-              <td id="proformaAdmin-1">Info</td>
-              <td id="proformaAdmin-2"></td>
-              <td id="proformaAdmin-3"></td>
-              <td id="proformaAdmin-4"></td>
-              <td id="proformaAdmin-5"></td>
-              <td id="proformaAdmin-6"></td>
-              <td id="proformaAdmin-7"></td>
-              <td id="proformaAdmin-8"></td>
-              <td id="proformaAdmin-9"></td>
-              <td id="proformaAdmin-10"></td>
-              <td id="proformaAdmin-11"></td>
+              <td id="proformaadmin-1">Info</td>
+              <td id="proformaadmin-2"></td>
+              <td id="proformaadmin-3"></td>
+              <td id="proformaadmin-4"></td>
+              <td id="proformaadmin-5"></td>
+              <td id="proformaadmin-6"></td>
+              <td id="proformaadmin-7"></td>
+              <td id="proformaadmin-8"></td>
+              <td id="proformaadmin-9"></td>
+              <td id="proformaadmin-10"></td>
+              <td id="proformaadmin-11"></td>
             </tr>
             <tr>
               <td class="tableInfo" colspan="2">Management</td>

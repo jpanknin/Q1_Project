@@ -1,12 +1,10 @@
 // Fill in the input box for the properties available for selection
 //https://stackoverflow.com/questions/78932/how-do-i-programmatically-set-the-value-of-a-select-box-element-using-javascript
 
-// var props = JSON.stringify(properties);
-// console.log("Props", props);
-//
-// $.getJSON("props.json", function(data) {
-//   console.log("Data", data);
-// })
+var props = JSON.stringify("js/props.JSON");
+$.getJSON("js/props.JSON", function(data) {
+  var properties = data;
+})
 
 window.onload = fillSelectBox(properties);
 
@@ -29,7 +27,7 @@ function fillSelectBox(properties) {
 
 var property;
 var propSelect = document.querySelector('#propertySelectorButn');
-propSelect.addEventListener('click', propSelector());
+propSelect.addEventListener('click', propSelector);
 
 function propSelector() {
   property = document.querySelector('#propertySelector').value;
@@ -101,8 +99,9 @@ function fillProforma(property) {
   proformaYear(saleYear);
   proformaRentalIncome(prop, saleYear);
   proformaOtherIncome(prop, saleYear);
-  grossRentIncome(prop, saleYear),
-    vacancy(prop, saleYear)
+  grossRentIncome(prop, saleYear);
+  vacancy(prop, saleYear);
+  proformaExpenses(prop, saleYear);
 }
 
 // console.log(typeof properties[0].propInfo.numUnits);
@@ -443,7 +442,7 @@ function marketAssumptions(prop) {
 
 function proformaYear(saleYear) {
   var row = document.querySelector('#proformaYear');
-  for (var i = 1; i <= saleYear + 1; i++) {
+  for (var i = 1; i <= saleYear; i++) {
     var el = document.createElement('th');
     el.setAttribute("class", "proformaYearRow");
     var id = "proformaYear-" + i;
@@ -453,23 +452,6 @@ function proformaYear(saleYear) {
   }
 }
 
-// function proformaRentalIncome(prop, saleYear) {
-//   var rentGrowth = {};
-//   var data = prop.marketRentalAssumptions[0];
-//   var rent = prop.currentFinancials.revenue.total.rent;
-//   var row = document.querySelector('#proformaRentalIncome');
-//   for (var i = 1; i <= saleYear; i++) {
-//     var el = document.createElement('td');
-//     el.setAttribute("id", "proformaRentalIncome-" + i);
-//     rent = (rent * (1 + data[i].Revenue)).toFixed(2);
-//     // rent = "$" + rent.toLocaleString(undefined, {minimumFractionDigits: 2});
-//     rentGrowth[i] = rent;
-//     el.innerHTML = rent;
-//     row.appendChild(el);
-//   }
-//   return rentGrowth;
-// }
-
 function proformaRentalIncome(prop, saleYear) {
   var rentGrowth = {};
   var data = prop.marketRentalAssumptions[0];
@@ -477,7 +459,7 @@ function proformaRentalIncome(prop, saleYear) {
   for (var i = 1; i <= saleYear; i++) {
     var el = document.querySelector('#proformaRentalIncome-' + i);
     // console.log(el);
-    rent = (rent * (1 + data[i].Revenue)).toFixed(2);
+    rent = (rent * (1 + data[i].Revenue));
     rentGrowth[i] = rent;
     el.innerHTML = toDollar(rent);
   }
@@ -490,7 +472,7 @@ function proformaOtherIncome(prop, saleYear) {
   var other = prop.currentFinancials.revenue.total.other;
   for (var i = 1; i <= saleYear; i++) {
     var el = document.querySelector("#proformaOtherIncome-" + i);
-    other = (other * (1 + data[i].Revenue)).toFixed(2);
+    other = (other * (1 + data[i].Revenue));
     otherGrowth[i] = other;
     el.innerHTML = toDollar(other);
   }
@@ -527,27 +509,36 @@ function vacancy(prop, saleYear) {
     // console.log(vacancy);
     var el = document.querySelector('#proformaVacancy-' + i);
     vacancyRate[i] = vacancy;
-    el.innerHTML = vacancy;
+    el.innerHTML = toDollar(vacancy);
   }
   return vacancyRate;
 }
 
-// Builds the functionality for the accordion sections
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].onclick = function(){
-        /* Toggle between adding and removing the "active" class,
-        to highlight the button that controls the panel */
-        this.classList.toggle("active");
-
-        /* Toggle between hiding and showing the active panel */
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
+function proformaExpenses(prop, saleYear) {
+  var data = prop.currentFinancials.expenses.total;
+  var expenses = prop.marketRentalAssumptions[0];
+  var expenseRates = {};
+  for (key in expenses) {
+    expenseRates[key] = expenses[key].Expense;
+  }
+  var expenseAmount = {};
+  for (item in data) {
+    if (data[item] > 1) {
+      expenseAmount[item] = data[item];
     }
+  }
+  var j = 1
+  for (line in expenseAmount) {
+    for (var j = 1; j <= saleYear; j++) {
+      var select = "#proforma" + line + "-" + j;
+      var el = document.querySelector(select);
+      // console.log(expenseAmount[line]);
+      var amount = toDollar(expenseAmount[line] * (1 + (expenseRates[j] ** j)));
+      // console.log(amount);
+      el.innerHTML = amount;
+      // console.log(el);
+    }
+    // var el = document.querySelector
+  }
+
 }

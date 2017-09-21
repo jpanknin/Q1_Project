@@ -103,7 +103,7 @@ function fillValues(property) {
   curExpenseSF(prop);
   managementPercent(prop);
   reservePercent(prop);
-  dateBox(prop);
+  // dateBox(prop);
 }
 
 function fillProforma(property) {
@@ -637,6 +637,7 @@ function saleMetrics(prop, saleYear) {
   var unit = income / units;
   document.querySelector('#salePrice').innerText = toDollar(total);
   document.querySelector('#salePriceUnit').innerText = toDollar(unit);
+
 }
 
 function purchaseCap(prop, saleYear) {

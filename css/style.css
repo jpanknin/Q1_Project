@@ -49,6 +49,10 @@ aside form {
   margin-bottom: 20px;
 }
 
+#propertySelectorButn {
+  width: 100px;
+}
+
 hr {
   border-color: white;
   margin-top: 30px;

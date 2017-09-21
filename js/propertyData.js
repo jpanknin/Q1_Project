@@ -6,7 +6,11 @@ var properties = [{
       propCity: "New York",
       propState: "New York",
       propType: "Multifamily",
-      numUnits: null
+      numUnits: null,
+    },
+    location: {
+      lat: 40.726388,
+      lng: -74.007792
     },
     purchaseInfo: {
       purchPrice: 19000000,
@@ -335,7 +339,11 @@ var properties = [{
       propCity: "New York",
       propState: "New York",
       propType: "Multifamily",
-      numUnits: null
+      numUnits: null,
+    },
+    location: {
+      lat: 40.741993,
+      lng: -73.989936
     },
     purchaseInfo: {
       purchPrice: 21000000,

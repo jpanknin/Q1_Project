@@ -1177,11 +1177,28 @@
   </div>
   </section> -->
 
+  <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: 40.741993, lng: -73.989936};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="js/tether.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/propertyData.js"></script>
     <script src="js/script.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoOGjCzdMSCqT4xMlZ1DkOZrh9NZJJpZA&callback=initMap">
+    </script>
 </body>
 
 </html>

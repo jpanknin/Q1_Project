@@ -29,22 +29,32 @@ function fillSelectBox(properties) {
 var property;
 var propSelect = document.querySelector('#propertySelectorButn');
 propSelect.addEventListener('click', propSelector);
+propSelect.addEventListener('click', runProgram)
+
 
 function propSelector() {
   property = document.querySelector('#propertySelector').value;
   for (var i = 0; i < properties.length; i++) {
     if (properties[i].propInfo.propAddress == property) {
-      fillValues(i);
-      fillProforma(i);
+
+      // fillValues(i);
+      // fillProforma(i);
+      // locations(i)
       return i;
     }
   }
 }
 
+function runProgram() {
+  fillValues(propSelector());
+  fillProforma(propSelector());
+}
+
 // var purchasePrice = properties[propSelector()].purchaseInfo.purchPrice;
 // var priceInput = document.querySelector('#purchPrice');
 // priceInput.addEventListener('keypress', function(event) {
-//   purchasePrice = priceInput.value
+//   console.log("Hello");
+//   // purchasePrice = priceInput.value
 // })
 // console.log(purchasePrice);
 
@@ -120,6 +130,10 @@ function fillProforma(property) {
   noi(prop, saleYear);
   saleMetrics(prop, saleYear);
   purchaseCap(prop, saleYear);
+  // locations(prop);
+  // initialize()
+  // initMap(prop);
+  // googleMap(prop);
 }
 
 // console.log(typeof properties[0].propInfo.numUnits);
@@ -637,7 +651,6 @@ function saleMetrics(prop, saleYear) {
   var unit = income / units;
   document.querySelector('#salePrice').innerText = toDollar(total);
   document.querySelector('#salePriceUnit').innerText = toDollar(unit);
-
 }
 
 function purchaseCap(prop, saleYear) {
@@ -648,13 +661,30 @@ function purchaseCap(prop, saleYear) {
   document.querySelector('#capOnTotal').innerText = toPercent(rent / total);
 }
 
-// function dateBox(prop) {
-//   var box = document.querySelector('#startDate');
-//   console.log(box);
-//   var val = prop.currentFinancials.date;
-//   var date = Date();
-//   year = date.getYear();
-//   // date = Date.now()
-//   // console.log(date);
-//   box.value = date;
+// function locations(prop) {
+//   var data = properties[prop].location;
+//   return data;
+// }
+
+// var propNumber = propSelector()
+// var mapProp = locations(propNumber);
+// var latitude = mapProp.lat;
+// var longitude = mapProp.lng;
+// console.log(longitude);
+
+// function initMap() {
+//   var propNumber = propSelector()
+//   // console.log(propNumber);
+//   var data = properties[propNumber].location;
+//   var latitude = data.lat;
+//   var longitude = data.lng;
+//   var uluru = {lat: latitude, lng: longitude};
+//   var map = new google.maps.Map(document.getElementById('map'), {
+//     zoom: 15,
+//     center: uluru
+//   });
+//   var marker = new google.maps.Marker({
+//     position: uluru,
+//     map: map
+//   });
 // }

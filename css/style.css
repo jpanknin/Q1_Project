@@ -53,6 +53,10 @@ aside form {
   width: 100px;
 }
 
+.btn-primary {
+  background-color: rgb(75, 108, 163);
+}
+
 hr {
   border-color: white;
   margin-top: 30px;
@@ -245,9 +249,9 @@ section > p.accordion {
   position: static;
 }
 
-/*.filler {
-  line-height: 16px;
-  height: 16px;
-  display: inline-block;
-  empty-cells: show;
-}*/
+#map {
+  height: 800px;
+  width: 90%;
+  margin: auto;
+  border: 3px solid grey;
+}

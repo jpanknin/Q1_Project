@@ -46,11 +46,19 @@ aside form {
   display: block;
   font-size: 14px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 hr {
   border-color: white;
-  margin: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.dateCenter {
+  text-align: center;
 }
 
 #navBar li {
@@ -195,7 +203,9 @@ input {
 }
 
 .colTitle {
-  color: red;
+  color: black;
+  font-weight: 900;
+  font-size: 12px;
   background: grey;
 }
 

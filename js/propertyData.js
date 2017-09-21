@@ -9,7 +9,7 @@ var properties = [{
       numUnits: null
     },
     purchaseInfo: {
-      purchPrice: 1000000,
+      purchPrice: 19000000,
       closing: {
         CostPercent: .03,
         CostAmount: undefined
@@ -160,7 +160,7 @@ var properties = [{
           gross: null,
           vacancy: .1,
           concessions: .02,
-          creditLoss: .03,
+          creditLoss: .0,
           net: null
         },
         unit: {
@@ -261,84 +261,84 @@ var properties = [{
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       2: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       3: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       4: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       5: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       6: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       7: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       8: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       9: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       10: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       }
     }]
   },
   {
     propInfo: {
-      propName: "Galvan",
-      propAddress: "320 Hudson",
+      propName: "Eataly",
+      propAddress: "200 Fifth Avenue",
       propCity: "New York",
       propState: "New York",
       propType: "Multifamily",
       numUnits: null
     },
     purchaseInfo: {
-      purchPrice: 1000000,
+      purchPrice: 21000000,
       closing: {
         CostPercent: .03,
         CostAmount: null
@@ -477,7 +477,7 @@ var properties = [{
       }
     },
     currentFinancials: {
-      date: null,
+      date: "9/22/2017",
       revenue: {
         total: {
           rent: 2000000,
@@ -485,7 +485,7 @@ var properties = [{
           gross: null,
           vacancy: .07,
           concessions: .04,
-          creditLoss: .03,
+          creditLoss: .0,
           net: null
         },
         unit: {
@@ -586,70 +586,70 @@ var properties = [{
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       2: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       3: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       4: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       5: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       6: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       7: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       8: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       9: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       },
       10: {
         Revenue: .03,
         Expense: .03,
         Vacancy: .1,
         Concessions: .03,
-        CreditLoss: .02
+        CreditLoss: .0
       }
     }]
     // }

@@ -160,11 +160,11 @@
               <th class="tableTitle" colspan="6">SOURCES AND USES</th>
             </tr>
             <tr class="colTitle" class="colSummary">
-              <td colspan="2"></td>
-              <td>Total</td>
-              <td>$/Unit</td>
-              <td>$/SF</td>
-              <td>% of Total</td>
+              <td class="colTitle" colspan="2"></td>
+              <td class="colTitle">Total</td>
+              <td class="colTitle">$/Unit</td>
+              <td class="colTitle">$/SF</td>
+              <td class="colTitle">% of Total</td>
             </tr>
             <tr>
               <td class="tableSectionTitle" colspan="6"><i><u>Sources</u></i></td>
@@ -229,12 +229,12 @@
               <th class="tableTitle" colspan="6">RENTAL RATE ASSUMPTIONS</th>
             </tr>
             <tr class="colTitle">
-              <td>Floorplan</td>
-              <td>Total Units</td>
-              <td>Rent/Unit</td>
-              <td>SF/Unit</td>
-              <td>Total SF</td>
-              <td>Rent/SF</td>
+              <td class="colTitle">Floorplan</td>
+              <td class="colTitle">Total Units</td>
+              <td class="colTitle">Rent/Unit</td>
+              <td class="colTitle">SF/Unit</td>
+              <td class="colTitle">Total SF</td>
+              <td class="colTitle">Rent/SF</td>
             </tr>
             <tr>
               <td><input id="fp1Type" type="text" name="" value=""></td>
@@ -274,8 +274,8 @@
               <th class="tableTitle" colspan="6">RETURNS SUMMARY</th>
             </tr>
             <tr class="colTitle">
-              <td colspan="2">Unlevered</td>
-              <td colspan="2">Levered</td>
+              <td class="colTitle" colspan="2">Unlevered</td>
+              <td class="colTitle" colspan="2">Levered</td>
             </tr>
             <tr>
               <td class="tableInfo">Net Profit</td>
@@ -323,12 +323,12 @@
               <th class="tableTitle" colspan="6">CURRENT FINANCIAL PERFORMANCE</th>
             </tr>
             <tr class="colTitle">
-              <td>As of Date:</td>
-              <td><input id="startDate" class="finInput" type="date" name=""></td>
-              <td>Total</td>
-              <td>$/Unit</td>
-              <td>$/SF</td>
-              <td>% of Total</td>
+              <td id="asOfDate" class="colTitle">As of Date:</td>
+              <td><input id="startDate" class="finInput" type="text" name="" value=""></td>
+              <td class="colTitle">Total</td>
+              <td class="colTitle">$/Unit</td>
+              <td class="colTitle">$/SF</td>
+              <td class="colTitle">% of Total</td>
             </tr>
             <tr>
               <td class="tableSectionTitle" colspan="6"><i><u>Revenue</u></i></td>
@@ -476,12 +476,12 @@
               <th class="tableTitle" colspan="6">MARKET RENTAL ASSUMPTIONS</th>
             </tr>
             <tr class="colTitle" id="marketRentAssumptions">
-              <td></td>
-              <td>Revenue</td>
-              <td>Expenses</td>
-              <td>Vacancy</td>
-              <td>Concessions</td>
-              <td>Credit Loss</td>
+              <td class="colTitle"></td>
+              <td class="colTitle">Revenue</td>
+              <td class="colTitle">Expenses</td>
+              <td class="colTitle">Vacancy</td>
+              <td class="colTitle">Concessions</td>
+              <td class="colTitle">Credit Loss</td>
             </tr>
             <tr>
               <td>Year 1</td>
@@ -579,8 +579,7 @@
             <th colspan="11">Proforma</th>
             </tr>
             <tr id="proformaYear">
-              <th></th>
-              <th></th>
+              <th colspan="2">Year</th>
               <!-- <th class="proformaYearRow" id="proformaYear-1">Year</th>
               <th class="proformaYearRow" id="proformaYear-2"></th>
               <th class="proformaYearRow" id="proformaYear-3"></th>
@@ -594,21 +593,21 @@
               <th class="proformaYearRow" id="proformaYear-11"></th> -->
             </tr>
             <tr>
-              <th>Year End:</th>
-              <th class="proformaDateRow" id="proformaDate-1">Date</th>
-              <th class="proformaDateRow" id="proformaDate-2"></th>
-              <th class="proformaDateRow" id="proformaDate-3"></th>
-              <th class="proformaDateRow" id="proformaDate-4"></th>
-              <th class="proformaDateRow" id="proformaDate-5"></th>
-              <th class="proformaDateRow" id="proformaDate-6"></th>
-              <th class="proformaDateRow" id="proformaDate-7"></th>
-              <th class="proformaDateRow" id="proformaDate-8"></th>
-              <th class="proformaDateRow" id="proformaDate-9"></th>
-              <th class="proformaDateRow" id="proformaDate-10"></th>
-              <th class="proformaDateRow" id="proformaDate-11"></th>
+              <th colspan="2">Year End:</th>
+              <th class="proformaDateRow dateCenter" id="proformaDate-1">Date</th>
+              <th class="proformaDateRow dateCenter" id="proformaDate-2"></th>
+              <th class="proformaDateRow dateCenter" id="proformaDate-3"></th>
+              <th class="proformaDateRow dateCenter" id="proformaDate-4"></th>
+              <th class="proformaDateRow dateCenter" id="proformaDate-5"></th>
+              <th class="proformaDateRow dateCenter" id="proformaDate-6"></th>
+              <th class="proformaDateRow dateCenter" id="proformaDate-7"></th>
+              <th class="proformaDateRow dateCenter" id="proformaDate-8"></th>
+              <th class="proformaDateRow dateCenter" id="proformaDate-9"></th>
+              <th class="proformaDateRow dateCenter" id="proformaDate-10"></th>
+              <th class="proformaDateRow dateCenter" id="proformaDate-11"></th>
             </tr>
             <tr>
-              <td class="tableSectionTitle" colspan="10"><u><i>Revenue</i></u></td>
+              <td class="tableSectionTitle" colspan="12"><u><i>Revenue</i></u></td>
             </tr>
             <tr>
               <td id="proformaRentalIncome" class="tableInfo" colspan="2">Rental Income</td>
@@ -669,7 +668,7 @@
               <td id="proformaVacancy-10"></td>
               <td id="proformaVacancy-11"></td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td class="tableInfo" colspan="2">Less: Concessions</td>
               <td id="proformaConcessions-1">Info</td>
               <td id="proformaConcessions-2"></td>
@@ -682,8 +681,8 @@
               <td id="proformaConcessions-9"></td>
               <td id="proformaConcessions-10"></td>
               <td id="proformaConcessions-11"></td>
-            </tr>
-            <tr>
+            </tr> -->
+            <!-- <tr>
               <td class="tableInfo" colspan="2">Less: Credit Loss</td>
               <td id="proformaCreditLoss-1">Info</td>
               <td id="proformaCreditLoss-2"></td>
@@ -696,7 +695,7 @@
               <td id="proformaCreditLoss-9"></td>
               <td id="proformaCreditLoss-10"></td>
               <td id="proformaCreditLoss-11"></td>
-            </tr>
+            </tr> -->
             <tr>
               <td class="tableInfo" colspan="2">Net Rental Income</td>
               <td id="proformaNetIncome-1">Info</td>
@@ -712,10 +711,10 @@
               <td id="proformaNetIncome-11"></td>
             </tr>
             <tr>
-              <!-- Blank row here -->
+              <th colspan="12">.</th>
             </tr>
             <tr>
-              <td class="tableSectionTitle">Operating Expenses</td>
+              <td colspan="12" class="tableSectionTitle">Operating Expenses</td>
             </tr>
             <tr>
               <td class="tableInfo" colspan="2">Real Estate Taxes</td>
@@ -843,7 +842,7 @@
               <td id="proformaadmin-10"></td>
               <td id="proformaadmin-11"></td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td class="tableInfo" colspan="2">Management</td>
               <td id="proformaManagement-1">Info</td>
               <td id="proformaManagement-2"></td>
@@ -870,7 +869,7 @@
               <td id="proformaReserves-9"></td>
               <td id="proformaReserves-10"></td>
               <td id="proformaReserves-11"></td>
-            </tr>
+            </tr> -->
             <tr>
               <td class="tableInfo" colspan="2">Total Operating Expenses</td>
               <td id="proformaTotalExpenses-1">Info</td>
@@ -890,7 +889,7 @@
             </tr>
             <tr>
               <td class="tableInfo" colspan="2">Net Operating Income</td>
-              <td id="proformaNOI-1">Info</td>
+              <td id="proformaNOI-1"></td>
               <td id="proformaNOI-2"></td>
               <td id="proformaNOI-3"></td>
               <td id="proformaNOI-4"></td>
@@ -902,13 +901,13 @@
               <td id="proformaNOI-10"></td>
               <td id="proformaNOI-11"></td>
             </tr>
-            <tr>
-              <!-- Blank row here -->
-            </tr>
+            <!-- <tr>
+
+            </tr> -->
             <tr>
               <td class="tableInfo" colspan="2">Capital Expenditures</td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td class="tableInfo" colspan="2">Capital Expenditures</td>
               <td id="proformaCapEx-1">Info</td>
               <td id="proformaCapEx-2"></td>
@@ -923,8 +922,8 @@
               <td id="proformaCapEx-11"></td>
             </tr>
             <tr>
-              <!-- Blank row here -->
-            </tr>
+              Blank row here -->
+            <!-- </tr>
             <tr>
               <td class="tableInfo" colspan="2">Net Cash Flow</td>
               <td id="proformaNCF-1">Info</td>
@@ -938,7 +937,7 @@
               <td id="proformaNCF-9"></td>
               <td id="proformaNCF-10"></td>
               <td id="proformaNCF-11"></td>
-            </tr>
+            </tr> -->
           </table>
         </section>
       </div>
@@ -947,8 +946,8 @@
 
   <hr>
 
-  <div class="container-fluid">
-    <div class="row">
+  <!-- <div class="container-fluid"> -->
+    <!-- <div class="row">
       <div class="col-sm-12">
         <section>
           <div class="col-sm-6 irrSectionLeft">
@@ -1083,9 +1082,9 @@
                 <td></td>
                 <td></td>
               </tr>
-              <tr>
+              <tr> -->
                 <!-- Blank row -->
-              </tr>
+              <!-- </tr>
               <tr>
                 <td class="tableInfo" colspan="2">Gross Sale Proceeds</td>
                 <td></td>
@@ -1172,7 +1171,7 @@
         </section>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- </div>
   </div>

@@ -9,6 +9,7 @@ $.getJSON("js/props.JSON", function(data) {
 window.onload = fillSelectBox(properties);
 
 
+
 function fillSelectBox(properties) {
   for (var i = 0; i < properties.length; i++) {
     var optionBox = document.querySelector('#propertySelector');
@@ -40,7 +41,16 @@ function propSelector() {
   }
 }
 
+// var purchasePrice = properties[propSelector()].purchaseInfo.purchPrice;
+// var priceInput = document.querySelector('#purchPrice');
+// priceInput.addEventListener('keypress', function(event) {
+//   purchasePrice = priceInput.value
+// })
+// console.log(purchasePrice);
+
+
 function toDollar(num) {
+  // num = num.toFixed(0);
   num = "$" + num.toLocaleString(undefined, {
     minimumFractionDigits: 0
   });
@@ -91,6 +101,9 @@ function fillValues(property) {
   curFinancialsCalcs(prop);
   curExpenseUnit(prop);
   curExpenseSF(prop);
+  managementPercent(prop);
+  reservePercent(prop);
+  dateBox(prop);
 }
 
 function fillProforma(property) {
@@ -101,7 +114,12 @@ function fillProforma(property) {
   proformaOtherIncome(prop, saleYear);
   grossRentIncome(prop, saleYear);
   vacancy(prop, saleYear);
+  netRent(prop, saleYear);
   proformaExpenses(prop, saleYear);
+  totalExp(prop, saleYear);
+  noi(prop, saleYear);
+  saleMetrics(prop, saleYear);
+  purchaseCap(prop, saleYear);
 }
 
 // console.log(typeof properties[0].propInfo.numUnits);
@@ -373,7 +391,9 @@ function curFinancialsCalcs(prop) {
   document.querySelector('#netRentTotal').innerText = toDollar(netIncome);
   document.querySelector('#netRentUnit').innerText = toDollar(netIncome / units);
   document.querySelector('#netRentSF').innerText = toSmall(netIncome / sf);
+  return netIncome;
 }
+
 
 function curExpenseUnit(prop) {
   var data = prop.currentFinancials.expenses.total;
@@ -417,6 +437,32 @@ function curExpensePer(prop) {
   }
 }
 
+function managementPercent(prop) {
+  var data = prop.currentFinancials.expenses.total;
+  var manage = data.management;
+  var units = totalUnitCalc(prop);
+  var sf = totalSFCalc(prop);
+  var netRent = curFinancialsCalcs(prop);
+  var manageTotal = manage * netRent;
+  document.querySelector('#managementTotal').innerHTML = toDollar(manageTotal);
+  document.querySelector('#managementUnit').innerHTML = toDollar(manageTotal / units);
+  document.querySelector('#managementSF').innerHTML = toDollar(manageTotal / sf);
+  return manageTotal;
+}
+
+function reservePercent(prop) {
+  var data = prop.currentFinancials.expenses.total;
+  var reserves = data.reserves;
+  var units = totalUnitCalc(prop);
+  var sf = totalSFCalc(prop);
+  var netRent = curFinancialsCalcs(prop);
+  var reserveTotal = reserves * netRent;
+  document.querySelector('#reservesTotal').innerHTML = toDollar(reserveTotal);
+  document.querySelector('#reservesUnit').innerHTML = toDollar(reserveTotal / units);
+  document.querySelector('#reservesSF').innerHTML = toDollar(reserveTotal / sf);
+  return reserveTotal;
+}
+
 function floorplanCalcs(prop) {
   var info = prop.rentalAssumptions;
   for (var i = 0; i < info.length - 1; i++) {
@@ -447,6 +493,7 @@ function proformaYear(saleYear) {
     el.setAttribute("class", "proformaYearRow");
     var id = "proformaYear-" + i;
     el.setAttribute("id", id);
+    el.setAttribute("class", "dateCenter")
     el.innerHTML = "Year " + i;
     row.appendChild(el);
   }
@@ -455,7 +502,7 @@ function proformaYear(saleYear) {
 function proformaRentalIncome(prop, saleYear) {
   var rentGrowth = {};
   var data = prop.marketRentalAssumptions[0];
-  var rent = prop.currentFinancials.revenue.total.rent;
+  var rent = curFinancialsCalcs(prop);;
   for (var i = 1; i <= saleYear; i++) {
     var el = document.querySelector('#proformaRentalIncome-' + i);
     // console.log(el);
@@ -472,7 +519,7 @@ function proformaOtherIncome(prop, saleYear) {
   var other = prop.currentFinancials.revenue.total.other;
   for (var i = 1; i <= saleYear; i++) {
     var el = document.querySelector("#proformaOtherIncome-" + i);
-    other = (other * (1 + data[i].Revenue));
+    other = Math.round((other * (1 + data[i].Revenue)));
     otherGrowth[i] = other;
     el.innerHTML = toDollar(other);
   }
@@ -485,12 +532,10 @@ function grossRentIncome(prop, saleYear) {
   var grossIncome = {};
   for (var i = 1; i <= saleYear; i++) {
     var grossNum = parseInt(rent[i]) + parseInt(other[i]);
-    var grossPrint = "$" + (parseInt(rent[i]) + parseInt(other[i])).toLocaleString(undefined, {
-      minimumFractionDigits: 0
-    });
+    var grossPrint = toDollar(grossNum);
     var el = document.querySelector('#proformaGrossIncome-' + i);
     grossIncome[i] = grossNum;
-    el.innerHTML = toDollar(grossPrint);
+    el.innerHTML = grossPrint;
   }
   return grossIncome;
 }
@@ -504,14 +549,26 @@ function vacancy(prop, saleYear) {
   }
   var vacancyRate = {};
   for (var i = 1; i <= saleYear; i++) {
-
-    var vacancy = parseInt(grossIncome[i]) - (parseInt(grossIncome[i]) * data[i].Vacancy);
-    // console.log(vacancy);
+    var income = parseInt(grossIncome[i]);
+    var vacancy = income * data[i].Vacancy;
     var el = document.querySelector('#proformaVacancy-' + i);
     vacancyRate[i] = vacancy;
     el.innerHTML = toDollar(vacancy);
   }
   return vacancyRate;
+}
+
+function netRent(prop, saleYear) {
+  var income = grossRentIncome(prop, saleYear);
+  var vacancyRate = vacancy(prop, saleYear);
+  var netIncome = {};
+  for (var i = 1; i <=saleYear; i++) {
+    netIncome[i] = income[i] - vacancyRate[i]
+    var text = "#proformaNetIncome-" + i;
+    var el = document.querySelector(text);
+    el.innerText = toDollar(netIncome[i]);
+  }
+  return netIncome;
 }
 
 function proformaExpenses(prop, saleYear) {
@@ -522,23 +579,81 @@ function proformaExpenses(prop, saleYear) {
     expenseRates[key] = expenses[key].Expense;
   }
   var expenseAmount = {};
+  var total = 0;
   for (item in data) {
     if (data[item] > 1) {
       expenseAmount[item] = data[item];
     }
+    total += data[item];
   }
-  var j = 1
+  var j = 1;
   for (line in expenseAmount) {
     for (var j = 1; j <= saleYear; j++) {
       var select = "#proforma" + line + "-" + j;
       var el = document.querySelector(select);
-      // console.log(expenseAmount[line]);
       var amount = toDollar(expenseAmount[line] * (1 + (expenseRates[j] ** j)));
-      // console.log(amount);
       el.innerHTML = amount;
-      // console.log(el);
     }
-    // var el = document.querySelector
   }
-
+  return total;
 }
+
+function totalExp(prop, saleYear) {
+  var expense = proformaExpenses(prop, saleYear);
+  var data = prop.marketRentalAssumptions[0];
+  var yearExpense = {};
+  for (var i = 1; i <= saleYear; i++) {
+    var exp = data[i].Expense;
+    yearExpense[i] = expense * ((1 + exp) ** i);
+    var val = "#proformaTotalExpenses-" + i;
+    var el = document.querySelector(val);
+    var amount = toDollar(yearExpense[i]);
+    el.innerText = amount;
+  }
+  return yearExpense;
+}
+
+function noi(prop, saleYear) {
+  var income = netRent(prop, saleYear);
+  var expense = totalExp(prop, saleYear);
+  var netOpIncome = {};
+  for (var i = 1; i <= saleYear; i++) {
+    netOpIncome[i] = income[i] - expense[i];
+  }
+  for (var j = 1; j <= saleYear; j++) {
+    var val = "#proformaNOI-" + j;
+    var el = document.querySelector(val);
+    var inc = toDollar(netOpIncome[j]);
+    el.innerText = inc;
+  }
+  return netOpIncome;
+}
+
+function saleMetrics(prop, saleYear) {
+  var units = totalUnitCalc(prop);
+  var cap = prop.saleAssumptions.saleCapRate;
+  var income = noi(prop, saleYear)[saleYear - 1];
+  var total = income / cap;
+  var unit = income / units;
+  document.querySelector('#salePrice').innerText = toDollar(total);
+  document.querySelector('#salePriceUnit').innerText = toDollar(unit);
+}
+
+function purchaseCap(prop, saleYear) {
+  var price = prop.purchaseInfo.purchPrice;
+  var total = purchaseInfoCalcs(prop);
+  var rent = noi(prop, saleYear)[1];
+  document.querySelector('#capOnPurchase').innerText = toPercent(rent / price);
+  document.querySelector('#capOnTotal').innerText = toPercent(rent / total);
+}
+
+// function dateBox(prop) {
+//   var box = document.querySelector('#startDate');
+//   console.log(box);
+//   var val = prop.currentFinancials.date;
+//   var date = Date();
+//   year = date.getYear();
+//   // date = Date.now()
+//   // console.log(date);
+//   box.value = date;
+// }

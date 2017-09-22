@@ -1,6 +1,10 @@
 // Fill in the input box for the properties available for selection
 //https://stackoverflow.com/questions/78932/how-do-i-programmatically-set-the-value-of-a-select-box-element-using-javascript
 
+$(document).ready(function() {
+
+
+
 var props = JSON.stringify("js/props.JSON");
 $.getJSON("js/props.JSON", function(data) {
   var properties = data;
@@ -688,3 +692,4 @@ function purchaseCap(prop, saleYear) {
 //     map: map
 //   });
 // }
+})
